@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:treeco/core/components/card/not_found_navigation_widget.dart';
 import 'package:treeco/core/constants/navigation/navigation_constants.dart';
-import 'package:treeco/main.dart';
+import 'package:treeco/view/onboarding/welcome/welcome_view.dart';
+import 'package:treeco/view/splash/view/splash_view.dart';
+
 
 class NavigationRoute {
   static NavigationRoute _instance = NavigationRoute._init();
@@ -13,6 +15,8 @@ class NavigationRoute {
     switch (args.name) {
       case NavigationConstants.SPLASH_VIEW:
         return normalNavigate(SplashScreen());
+      case NavigationConstants.WELCOME_VIEW:
+        return normalNavigate(WelcomeScreen());
       default:
         return MaterialPageRoute(
           builder: (context) => NotFoundNavigationWidget(),

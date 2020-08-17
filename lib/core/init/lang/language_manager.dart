@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class LanguageManager {
@@ -9,7 +10,17 @@ class LanguageManager {
 
   LanguageManager._init();
 
-  final enLocale = Locale("en", "US");
+  final enLocale = Locale('en', 'US');
+  final trLocale = Locale('tr','TR');
 
-  List<Locale> get supportedLocales => [enLocale];
+  List<Locale> get supportedLocales => [enLocale,trLocale];
+
+  void languageChangeTurkish(BuildContext context){
+    EasyLocalization.of(context).locale = LanguageManager.instance.trLocale;
+
+  }
+  void languageChangeEnglish(BuildContext context){
+    EasyLocalization.of(context).locale = LanguageManager.instance.enLocale;
+
+  }
 }
