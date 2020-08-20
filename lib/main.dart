@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'package:treeco/core/constants/app/app_constants.dart';
 import 'package:treeco/core/init/lang/language_manager.dart';
 import 'package:treeco/core/init/navigation/navigation_route.dart';

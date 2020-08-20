@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:treeco/core/base/state/base_state.dart';
 import 'package:treeco/core/constants/app/app_constants.dart';
+import 'package:treeco/core/constants/navigation/navigation_constants.dart';
 import 'package:treeco/core/extension/string_extension.dart';
+import 'package:treeco/core/init/navigation/navigation_service.dart';
 import 'package:treeco/view/constants/size_config.dart';
 import 'package:treeco/view/onboarding/welcome/welcome_model.dart';
 
@@ -27,19 +29,21 @@ class _WelcomeScreenState extends BaseState<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        children: <Widget>[
-          pageView(),
-          SizedBox(height: 10,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(
-              pageViewCount,
-                  (index) => buildDot(index: index),
+      child: Scaffold(
+        body: Column(
+          children: <Widget>[
+            pageView(),
+            SizedBox(height: 10,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                pageViewCount,
+                    (index) => buildDot(index: index),
+              ),
             ),
-          ),
-          buttons(),
-        ],
+            buttons(),
+          ],
+        ),
       ),
     );
   }
@@ -101,8 +105,10 @@ class _WelcomeScreenState extends BaseState<WelcomeScreen> {
                     ),
                     color: Colors.white,
                     splashColor:Color(ApplicationConstants.DARK_GREEN) ,
-                    onPressed: (){},
-                    child: Text('signUp'.locale, style: TextStyle(
+                    onPressed: (){
+                      NavigationService.instance.navigateToPage(path: NavigationConstants.SIGN_IN);
+                    },
+                    child: Text('signIn'.locale, style: TextStyle(
                         color: Colors.black,
                         fontFamily: ApplicationConstants.FONT_FAMILY
                     ),),
@@ -143,44 +149,46 @@ class WelcomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Column(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(top: 20),
-            child: Text(
-              title,
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: Text(
+                title,
+                style: TextStyle(
+                    fontSize: SizeConfig.getProportionateScreenWidth(24),
+                    color: Color(ApplicationConstants.TEXT_GREEN),
+                    fontFamily: ApplicationConstants.FONT_FAMILY,
+                    fontWeight: FontWeight.w600),
+              ),
+            ),
+            Text(
+              text,
               style: TextStyle(
-                  fontSize: SizeConfig.getProportionateScreenWidth(24),
+                fontSize: SizeConfig.getProportionateScreenWidth(14),
+                color: Color(ApplicationConstants.TEXT_GREY),
+                fontFamily: ApplicationConstants.FONT_FAMILY,
+                fontWeight: FontWeight.w400,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              hashtag,
+              style: TextStyle(
+                  fontSize: SizeConfig.getProportionateScreenWidth(14),
                   color: Color(ApplicationConstants.TEXT_GREEN),
                   fontFamily: ApplicationConstants.FONT_FAMILY,
                   fontWeight: FontWeight.w600),
             ),
-          ),
-          Text(
-            text,
-            style: TextStyle(
-              fontSize: SizeConfig.getProportionateScreenWidth(14),
-              color: Color(ApplicationConstants.TEXT_GREY),
-              fontFamily: ApplicationConstants.FONT_FAMILY,
-              fontWeight: FontWeight.w400,
+            Lottie.asset(
+              imagePath,
+              width: SizeConfig.screenWidth,
+              height: SizeConfig.getProportionateScreenHeight(350),
             ),
-            textAlign: TextAlign.center,
-          ),
-          Text(
-            hashtag,
-            style: TextStyle(
-                fontSize: SizeConfig.getProportionateScreenWidth(14),
-                color: Color(ApplicationConstants.TEXT_GREEN),
-                fontFamily: ApplicationConstants.FONT_FAMILY,
-                fontWeight: FontWeight.w600),
-          ),
-          Lottie.asset(
-            imagePath,
-            width: SizeConfig.screenWidth,
-            height: SizeConfig.getProportionateScreenHeight(350),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
