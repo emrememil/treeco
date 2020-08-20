@@ -16,14 +16,14 @@ class WelcomeModel extends BaseModel{
       "title": "Treeco'ya hoş geldin",
       "text": "Kaliteli bir yaşam ve daha sağlıklı yarınlar için ",
       "hashtag": "#BirlikteYeşillendireceğiz",
-      "imagePath": "assets/animation/welcome1.json"
+      "imagePath": "assets/animation/welcome2.json"
     },
     {
       "title": "Treeco'ya hoş geldin",
       "text": "Uygulamada topladığın puanlarla önce sanal ormanını oluştur daha sonra "
           "bunu gerçek ormana dönüştüreceğiz.",
       "hashtag": "#BirlikteYeşillendireceğiz",
-      "imagePath": "assets/animation/welcome1.json"
+      "imagePath": "assets/animation/welcome3.json"
     }
   ];
 

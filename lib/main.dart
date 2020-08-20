@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:treeco/core/constants/app/app_constants.dart';
-import 'package:treeco/core/init/cache/locale_manager.dart';
 import 'package:treeco/core/init/lang/language_manager.dart';
 import 'package:treeco/core/init/navigation/navigation_route.dart';
 import 'package:treeco/core/init/navigation/navigation_service.dart';
@@ -28,6 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Treeco',
       home: SplashScreen(),
       onGenerateRoute: NavigationRoute.instance.generateRoute,
