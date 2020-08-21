@@ -26,6 +26,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Color(ApplicationConstants.DARK_GREEN),
+      ),
       debugShowCheckedModeBanner: false,
       title: 'Treeco',
       home: SplashScreen(),
