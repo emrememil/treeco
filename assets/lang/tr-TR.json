@@ -1,5 +1,24 @@
 {
     "welcomeTitle": "Treeco'ya Hoşgeldin!",
     "letStart" : "Hemen Başla",
-    "signIn" : "Zaten bir hesabım var"
+    "signIn" : "Zaten bir hesabım var",
+    "signInButton" : "Giriş Yap",
+    "signUpButton" : "Kayıt Ol",
+    "or" : "VEYA",
+    "dontHaveAnAccount" : "Bir hesabın yok mu? ",
+    "alreadyHaveAnAccount" : "Zaten bir hesabın var mı? ",
+    "createNow" : "Şimdi Oluştur",
+    "rememberMe" : "Beni Hatırla",
+    "forgotPassword" : "Şifremi Unuttum",
+    "email" : "Email",
+    "password": "Şifre",
+    "invalidEmail": "Geçersiz Email Adresi",
+    "passwordLength": "Şifre en az 6 karakterden oluşmalıdır",
+    "nameAndSurname": "Ad Soyad",
+    "birthday": "Doğum Tarihi",
+    "password": "Şifre",
+    "confirmPassword": "Şifre Tekrar",
+    "invalidName": "Geçersiz isim/Soyisim",
+    "invalidPassword": "Şifre en az 8 karakter olmalıdır",
+    "notMatchPasswords": "Şifreler uyuşmuyor!"
 }

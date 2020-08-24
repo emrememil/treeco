@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:treeco/core/components/card/not_found_navigation_widget.dart';
 import 'package:treeco/core/constants/navigation/navigation_constants.dart';
 import 'package:treeco/view/onboarding/signin/view/signin_view.dart';
+import 'package:treeco/view/onboarding/signup/view/signup_view.dart';
 import 'package:treeco/view/onboarding/welcome/welcome_view.dart';
 import 'package:treeco/view/splash/view/splash_view.dart';
 
@@ -20,6 +21,8 @@ class NavigationRoute {
         return normalNavigate(WelcomeScreen());
       case NavigationConstants.SIGN_IN:
         return normalNavigate(SignInScreen());
+      case NavigationConstants.SIGN_UP:
+        return normalNavigate(SignUpScreen());
       default:
         return MaterialPageRoute(
           builder: (context) => NotFoundNavigationWidget(),

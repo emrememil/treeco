@@ -30,6 +30,7 @@ class _WelcomeScreenState extends BaseState<WelcomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Column(
           children: <Widget>[
             pageView(),
@@ -83,7 +84,9 @@ class _WelcomeScreenState extends BaseState<WelcomeScreen> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     color: Color(ApplicationConstants.LIGHT_GREEN),
-                    onPressed: () {},
+                    onPressed: () {
+                      NavigationService.instance.navigateToPage(path: NavigationConstants.SIGN_UP);
+                    },
                     child: Text(
                       'letStart'.locale,
                       style: TextStyle(

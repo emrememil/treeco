@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:treeco/core/base/state/base_state.dart';
 import 'package:treeco/core/base/view/base_widget.dart';
 import 'package:treeco/core/constants/app/app_constants.dart';
@@ -17,12 +18,6 @@ class _SignInScreenState extends BaseState<SignInScreen> {
   SignInViewModel signInViewModel;
   SignInModel signInModel;
   var formKey = GlobalKey<FormState>();
-  bool automaticCheck = false;
-  bool emailCheck = false;
-  bool passwordCheck = false;
-  bool focus1 = false;
-  bool focus2 = false;
-  bool rememberMe=false;
 
   @override
   Widget build(BuildContext context) {
@@ -49,12 +44,12 @@ class _SignInScreenState extends BaseState<SignInScreen> {
               children: <Widget>[
                 signInTitle(),
                 Form(
-                  autovalidate: automaticCheck,
+                  autovalidate: false,
                   key: formKey,
                   child: Column(
                     children: <Widget>[
                       SizedBox(
-                        height: SizeConfig.getProportionateScreenHeight(32),
+                        height: SizeConfig.getProportionateScreenHeight(40),
                       ),
                       emailInput(),
                       SizedBox(
@@ -70,52 +65,121 @@ class _SignInScreenState extends BaseState<SignInScreen> {
                 forgotPassword,
                 signInButton,
                 SizedBox(
-                  height: SizeConfig.getProportionateScreenHeight(15),
+                  height: SizeConfig.getProportionateScreenHeight(30),
                 ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Divider(),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Text(
-                        "VEYA",
-                        style: TextStyle(
-                            color: Color(ApplicationConstants.TEXT_GREY),
-                            fontFamily: ApplicationConstants.FONT_FAMILY2,
-                            fontSize:
-                                SizeConfig.getProportionateScreenWidth(12)),
-                      ),
-                    ),
-                    Expanded(
-                      child: Divider(),
-                    ),
-                  ],
-                )
+                dividerOR,
+                SizedBox(
+                  height: SizeConfig.getProportionateScreenHeight(30),
+                ),
+                socialMediaIconButtons,
+                dontHaveAccount
               ],
             ),
           ),
         ),
       );
 
-  SizedBox get signInButton {
-    return SizedBox(
-      width: double.infinity,
-      height: SizeConfig.getProportionateScreenHeight(70),
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: SizeConfig.getProportionateScreenWidth(24)),
-        child: RaisedButton(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-          color: Color(ApplicationConstants.LIGHT_GREEN),
+  Expanded get dontHaveAccount {
+    return Expanded(
+      child: Container(
+        width: double.infinity,
+        height: double.infinity,
+        alignment: Alignment.bottomCenter,
+        child: Padding(
+          padding: EdgeInsets.only(
+              bottom: SizeConfig.getProportionateScreenHeight(50)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'dontHaveAnAccount'.locale,
+                style: TextStyle(
+                    fontFamily: ApplicationConstants.FONT_FAMILY2,
+                    color: Color(ApplicationConstants.TEXT_GREY),
+                    fontSize: SizeConfig.getProportionateScreenWidth(13)),
+              ),
+              Text(
+                'createNow'.locale,
+                style: TextStyle(
+                  fontFamily: ApplicationConstants.FONT_FAMILY2,
+                  color: Colors.blue,
+                  fontSize: SizeConfig.getProportionateScreenWidth(13),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Row get socialMediaIconButtons {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        IconButton(
+          icon: Image.asset(ApplicationConstants.FACEBOOK_ICON),
+          iconSize: SizeConfig.getProportionateScreenWidth(48),
           onPressed: () {},
+        ),
+        IconButton(
+          icon: Image.asset(ApplicationConstants.GOOGLE_ICON),
+          iconSize: SizeConfig.getProportionateScreenWidth(40),
+          onPressed: () {},
+        ),
+        IconButton(
+          icon: Image.asset(ApplicationConstants.TWITTER_ICON),
+          iconSize: SizeConfig.getProportionateScreenWidth(40),
+          onPressed: () {},
+        ),
+      ],
+    );
+  }
+
+  Row get dividerOR {
+    return Row(
+      children: <Widget>[
+        Expanded(
+          child: Divider(),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Text(
-            'letStart'.locale,
+            'or'.locale,
             style: TextStyle(
-                color: Colors.white,
-                fontFamily: ApplicationConstants.FONT_FAMILY),
+                color: Color(ApplicationConstants.TEXT_GREY),
+                fontFamily: ApplicationConstants.FONT_FAMILY2,
+                fontSize: SizeConfig.getProportionateScreenWidth(12)),
+          ),
+        ),
+        Expanded(
+          child: Divider(),
+        ),
+      ],
+    );
+  }
+
+  Padding get signInButton {
+    return Padding(
+      padding: EdgeInsets.only(top: 24.0),
+      child: SizedBox(
+        width: double.infinity,
+        height: SizeConfig.getProportionateScreenHeight(60),
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: SizeConfig.getProportionateScreenWidth(24)),
+          child: RaisedButton(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+            color: Color(ApplicationConstants.LIGHT_GREEN),
+            onPressed: () {},
+            child: Text(
+              'signInButton'.locale,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: ApplicationConstants.FONT_FAMILY),
+            ),
           ),
         ),
       ),
@@ -128,30 +192,37 @@ class _SignInScreenState extends BaseState<SignInScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(left: SizeConfig.getProportionateScreenWidth(16)),
+            padding: EdgeInsets.only(
+                left: SizeConfig.getProportionateScreenWidth(16)),
             child: Row(
               children: <Widget>[
-                Checkbox(
-                  activeColor: Color(ApplicationConstants.LIGHT_GREEN),
-                  value: rememberMe,
-                  onChanged: (val){
-                      setState(() {
-                        rememberMe=val;
-                      });
-                  },
+                Observer(
+                  builder: (context) => Checkbox(
+                    activeColor: Color(ApplicationConstants.LIGHT_GREEN),
+                    value: signInViewModel.rememberMe,
+                    onChanged: (val) {
+                      signInViewModel.changeRememberMe(val);
+                    },
+                  ),
                 ),
-                Text("Beni hatırla",style: TextStyle(
-                    color: (rememberMe) ? Colors.black:Color(ApplicationConstants.TEXT_GREY),
+                Text(
+                  'rememberMe'.locale,
+                  style: TextStyle(
+                    color: (signInViewModel.rememberMe)
+                        ? Colors.black
+                        : Color(ApplicationConstants.TEXT_GREY),
                     fontFamily: ApplicationConstants.FONT_FAMILY2,
                     fontSize: SizeConfig.getProportionateScreenWidth(13),
-                ),)
+                  ),
+                )
               ],
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(right: SizeConfig.getProportionateScreenWidth(32)),
+            padding: EdgeInsets.only(
+                right: SizeConfig.getProportionateScreenWidth(32)),
             child: Text(
-              "Şifremi Unuttum",
+              'forgotPassword'.locale,
               style: TextStyle(
                   color: Color(ApplicationConstants.TEXT_GREY),
                   fontFamily: ApplicationConstants.FONT_FAMILY2,
@@ -167,73 +238,14 @@ class _SignInScreenState extends BaseState<SignInScreen> {
     return Padding(
       padding: EdgeInsets.symmetric(
           horizontal: SizeConfig.getProportionateScreenWidth(24)),
-      child: TextFormField(
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(
-                horizontal: SizeConfig.getProportionateScreenWidth(24),
-                vertical: SizeConfig.getProportionateScreenHeight(22)),
-            labelText: "Email",
-            fillColor: Colors.green,
-            hoverColor: Color(ApplicationConstants.DARK_GREEN),
-            border: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(35.0),
-              borderSide: new BorderSide(),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(35.0),
-              borderSide:
-                  new BorderSide(color: Color(ApplicationConstants.DARK_GREEN)),
-            ),
-            focusedErrorBorder: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(35.0),
-              borderSide:
-                  new BorderSide(color: Color(ApplicationConstants.DARK_GREEN)),
-            ),
-            suffixIcon: (focus1)
-                ? Icon(
-                    (emailCheck) ? Icons.check : Icons.error,
-                    color: (emailCheck)
-                        ? Color(ApplicationConstants.TEXT_GREEN)
-                        : Colors.red,
-                  )
-                : null,
-          ),
-          keyboardType: TextInputType.emailAddress,
-          style: TextStyle(fontFamily: 'Montserrat'),
-          onChanged: (val) {
-            if (ApplicationConstants.emailCheck(val)) {
-              setState(() {
-                emailCheck = true;
-                focus1 = true;
-              });
-            } else {
-              setState(() {
-                emailCheck = false;
-                focus1 = true;
-              });
-            }
-          },
-          validator: (value) {
-            if (ApplicationConstants.emailCheck(value)) {
-              return "";
-            } else {
-              return 'Geçersiz Email';
-            }
-          }),
-    );
-  }
-
-  Padding passwordInput() {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: SizeConfig.getProportionateScreenWidth(24)),
-      child: TextFormField(
-          obscureText: true,
-          decoration: InputDecoration(
+      child: Observer(
+        builder: (context) => TextFormField(
+            decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(
                   horizontal: SizeConfig.getProportionateScreenWidth(24),
-                  vertical: SizeConfig.getProportionateScreenHeight(22)),
-              labelText: "Şifre",
+                  vertical: SizeConfig.getProportionateScreenHeight(18)),
+              labelText: 'email'.locale,
+              fillColor: Colors.green,
               hoverColor: Color(ApplicationConstants.DARK_GREEN),
               border: OutlineInputBorder(
                 borderRadius: new BorderRadius.circular(35.0),
@@ -249,36 +261,81 @@ class _SignInScreenState extends BaseState<SignInScreen> {
                 borderSide: new BorderSide(
                     color: Color(ApplicationConstants.DARK_GREEN)),
               ),
-              suffixIcon: (focus2)
+              suffixIcon: (signInViewModel.focus1)
                   ? Icon(
-                      (passwordCheck) ? Icons.check : Icons.error,
-                      color: (passwordCheck)
+                      (signInViewModel.emailCheck) ? Icons.check : Icons.error,
+                      color: (signInViewModel.emailCheck)
                           ? Color(ApplicationConstants.TEXT_GREEN)
                           : Colors.red,
                     )
-                  : null),
-          keyboardType: TextInputType.visiblePassword,
-          style: TextStyle(fontFamily: 'Montserrat'),
-          onChanged: (val) {
-            if (val.length >= 6) {
-              setState(() {
-                passwordCheck = true;
-                focus2 = true;
-              });
-            } else {
-              setState(() {
-                passwordCheck = false;
-                focus2 = true;
-              });
-            }
-          },
-          validator: (value) {
-            if (value.length >= 6) {
-              return "";
-            } else {
-              return 'Şifre en az 6 karakter olmalı';
-            }
-          }),
+                  : null,
+            ),
+            keyboardType: TextInputType.emailAddress,
+            style: TextStyle(fontFamily: ApplicationConstants.FONT_FAMILY2),
+            onChanged: (val) {
+              signInViewModel.emailOnChanged(val);
+            },
+            validator: (value) {
+              if (ApplicationConstants.emailCheck(value)) {
+                return "";
+              } else {
+                return 'invalidEmail'.locale;
+              }
+            }),
+      ),
+    );
+  }
+
+  Padding passwordInput() {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+          horizontal: SizeConfig.getProportionateScreenWidth(24)),
+      child: Observer(
+        builder: (context) => TextFormField(
+            obscureText: true,
+            decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.getProportionateScreenWidth(24),
+                    vertical: SizeConfig.getProportionateScreenHeight(18)),
+                labelText: 'password'.locale,
+                hoverColor: Color(ApplicationConstants.DARK_GREEN),
+                border: OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(35.0),
+                  borderSide: new BorderSide(),
+                ),
+                errorBorder: OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(35.0),
+                  borderSide: new BorderSide(
+                      color: Color(ApplicationConstants.DARK_GREEN)),
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(35.0),
+                  borderSide: new BorderSide(
+                      color: Color(ApplicationConstants.DARK_GREEN)),
+                ),
+                suffixIcon: (signInViewModel.focus2)
+                    ? Icon(
+                        (signInViewModel.passwordCheck)
+                            ? Icons.check
+                            : Icons.error,
+                        color: (signInViewModel.passwordCheck)
+                            ? Color(ApplicationConstants.TEXT_GREEN)
+                            : Colors.red,
+                      )
+                    : null),
+            keyboardType: TextInputType.visiblePassword,
+            style: TextStyle(fontFamily: ApplicationConstants.FONT_FAMILY2),
+            onChanged: (val) {
+              signInViewModel.passwordOnChanged(val);
+            },
+            validator: (value) {
+              if (value.length >= 6) {
+                return "";
+              } else {
+                return 'passwordLength'.locale;
+              }
+            }),
+      ),
     );
   }
 
@@ -286,17 +343,16 @@ class _SignInScreenState extends BaseState<SignInScreen> {
     return Container(
       width: double.infinity,
       child: Padding(
-        padding: const EdgeInsets.only(top: 8.0, left: 20),
+        padding: const EdgeInsets.only(top: 16.0, left: 20),
         child: Text(
-          "Giriş Yap",
+          'signInButton'.locale,
           style: TextStyle(
-              fontFamily: 'Poppins',
+              fontFamily: ApplicationConstants.FONT_FAMILY2,
               fontSize: SizeConfig.getProportionateScreenWidth(28),
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.bold,
               color: Colors.black),
         ),
       ),
     );
   }
-
 }

@@ -1,6 +1,30 @@
 {
     "welcomeTitle": "Welcome to Treeco!",
     "letStart" : "Let Start!",
-    "signIn" : "I have already account"
+    "signIn" : "I have already account",
+    "signInButton" : "Sign In",
+    "signUpButton" : "Sign Up",
+    "or" : "OR",
+    "dontHaveAnAccount" : "Don't have an account? ",
+    "alreadyHaveAnAccount" : "Already have an account? ",
+    "createNow" : "Create new one",
+    "rememberMe" : "Remember Me",
+    "forgotPassword" : "Forgot Password?",
+    "email" : "Email",
+    "password": "Password",
+    "invalidEmail": "Invalid Email",
+    "passwordLength": "Password must be at least 6 characters",
+    "nameAndSurname": "Name and Surname",
+    "birthday": "Birthday",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "invalidName": "Invalid Name/Surname",
+    "invalidPassword": "Password must be at least 8 characters",
+    "notMatchPasswords": "Password do not match!"
+
+
+
+
+
 
 }
