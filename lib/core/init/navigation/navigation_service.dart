@@ -20,4 +20,8 @@ class NavigationService implements INavigationService {
   Future<void> navigateToPageClear({String path, Object data}) async {
     await navigatorKey.currentState.pushNamedAndRemoveUntil(path, removeAllOldRoutes, arguments: data);
   }
+  @override
+  Future<void> navigatePop({String path, Object data}) async {
+    await navigatorKey.currentState.pop();
+  }
 }

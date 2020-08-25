@@ -4,7 +4,9 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:treeco/core/base/state/base_state.dart';
 import 'package:treeco/core/base/view/base_widget.dart';
 import 'package:treeco/core/constants/app/app_constants.dart';
+import 'package:treeco/core/constants/navigation/navigation_constants.dart';
 import 'package:treeco/core/extension/string_extension.dart';
+import 'package:treeco/core/init/navigation/navigation_service.dart';
 import 'package:treeco/view/constants/size_config.dart';
 import 'package:treeco/view/onboarding/signin/model/signin_model.dart';
 import 'package:treeco/view/onboarding/signin/view_model/signin_view_model.dart';
@@ -98,13 +100,19 @@ class _SignInScreenState extends BaseState<SignInScreen> {
                     color: Color(ApplicationConstants.TEXT_GREY),
                     fontSize: SizeConfig.getProportionateScreenWidth(13)),
               ),
-              Text(
-                'createNow'.locale,
-                style: TextStyle(
-                  fontFamily: ApplicationConstants.FONT_FAMILY2,
-                  color: Colors.blue,
-                  fontSize: SizeConfig.getProportionateScreenWidth(13),
-                  fontWeight: FontWeight.bold,
+              GestureDetector(
+                onTap: (){
+                  NavigationService.instance.navigatePop();
+                  NavigationService.instance.navigateToPage(path: NavigationConstants.SIGN_UP);
+                },
+                child: Text(
+                  'createNow'.locale,
+                  style: TextStyle(
+                    fontFamily: ApplicationConstants.FONT_FAMILY2,
+                    color: Colors.blue,
+                    fontSize: SizeConfig.getProportionateScreenWidth(13),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ],

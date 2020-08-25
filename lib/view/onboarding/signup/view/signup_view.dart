@@ -6,6 +6,8 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:treeco/core/base/state/base_state.dart';
 import 'package:treeco/core/base/view/base_widget.dart';
 import 'package:treeco/core/constants/app/app_constants.dart';
+import 'package:treeco/core/constants/navigation/navigation_constants.dart';
+import 'package:treeco/core/init/navigation/navigation_service.dart';
 import 'package:treeco/view/constants/date_picker_config.dart';
 import 'package:treeco/view/constants/size_config.dart';
 import 'package:treeco/core/extension/string_extension.dart';
@@ -40,51 +42,49 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
 
   get body => SafeArea(
         child: Scaffold(
-          //resizeToAvoidBottomInset: false,
+          resizeToAvoidBottomInset: false,
           //resizeToAvoidBottomPadding: false,
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
             iconTheme: IconThemeData(color: Colors.black),
           ),
-          body: SingleChildScrollView(
-            child: Container(
-              child: Column(
-                children: <Widget>[
-                  signUpTitle,
-                  Form(
-                    key: formKey,
-                    autovalidate: false,
-                    child: Column(
-                      children: <Widget>[
-                        SizedBox(
-                          height: SizeConfig.getProportionateScreenHeight(24),
-                        ),
-                        nameAndSurnameInput,
-                        SizedBox(
-                          height: SizeConfig.getProportionateScreenHeight(18),
-                        ),
-                        emailInput,
-                        SizedBox(
-                          height: SizeConfig.getProportionateScreenHeight(18),
-                        ),
-                        passwordInput,
-                        SizedBox(
-                          height: SizeConfig.getProportionateScreenHeight(18),
-                        ),
-                        confirmPasswordInput,
-                        SizedBox(
-                          height: SizeConfig.getProportionateScreenHeight(18),
-                        ),
-                      ],
-                    ),
+          body: Container(
+            child: Column(
+              children: <Widget>[
+                signUpTitle,
+                Form(
+                  key: formKey,
+                  autovalidate: false,
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: SizeConfig.getProportionateScreenHeight(24),
+                      ),
+                      nameAndSurnameInput,
+                      SizedBox(
+                        height: SizeConfig.getProportionateScreenHeight(18),
+                      ),
+                      emailInput,
+                      SizedBox(
+                        height: SizeConfig.getProportionateScreenHeight(18),
+                      ),
+                      passwordInput,
+                      SizedBox(
+                        height: SizeConfig.getProportionateScreenHeight(18),
+                      ),
+                      confirmPasswordInput,
+                      SizedBox(
+                        height: SizeConfig.getProportionateScreenHeight(18),
+                      ),
+                    ],
                   ),
-                  signUpButton,
-                  dividerOR,
-                  socialMediaIconButtons,
-                  alreadyHaveAccount
-                ],
-              ),
+                ),
+                signUpButton,
+                dividerOR,
+                socialMediaIconButtons,
+                alreadyHaveAccount
+              ],
             ),
           ),
         ),
@@ -308,7 +308,7 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
 
   Padding get signUpButton {
     return Padding(
-      padding: EdgeInsets.only(top: 1.0,bottom: 8.0),
+      padding: EdgeInsets.only(top: 1.0,bottom: SizeConfig.getProportionateScreenHeight(32)),
       child: SizedBox(
         width: double.infinity,
         height: SizeConfig.getProportionateScreenHeight(60),
@@ -379,30 +379,41 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
   }
 
   get alreadyHaveAccount {
-    return Container(
-      width: double.infinity,
-      height: 100,
-      alignment: Alignment.bottomCenter,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            'alreadyHaveAnAccount'.locale,
-            style: TextStyle(
-                fontFamily: ApplicationConstants.FONT_FAMILY2,
-                color: Color(ApplicationConstants.TEXT_GREY),
-                fontSize: SizeConfig.getProportionateScreenWidth(13)),
+    return Expanded(
+      child: Container(
+        width: double.infinity,
+        height: double.infinity,
+        alignment: Alignment.bottomCenter,
+        child: Padding(
+          padding: EdgeInsets.only(bottom:SizeConfig.getProportionateScreenHeight(30)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'alreadyHaveAnAccount'.locale,
+                style: TextStyle(
+                    fontFamily: ApplicationConstants.FONT_FAMILY2,
+                    color: Color(ApplicationConstants.TEXT_GREY),
+                    fontSize: SizeConfig.getProportionateScreenWidth(13)),
+              ),
+              GestureDetector(
+                onTap: (){
+                  NavigationService.instance.navigatePop();
+                  NavigationService.instance.navigateToPage(path: NavigationConstants.SIGN_IN);
+                },
+                child: Text(
+                  'signInButton'.locale,
+                  style: TextStyle(
+                    fontFamily: ApplicationConstants.FONT_FAMILY2,
+                    color: Colors.blue,
+                    fontSize: SizeConfig.getProportionateScreenWidth(13),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
           ),
-          Text(
-            'signInButton'.locale,
-            style: TextStyle(
-              fontFamily: ApplicationConstants.FONT_FAMILY2,
-              color: Colors.blue,
-              fontSize: SizeConfig.getProportionateScreenWidth(13),
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
