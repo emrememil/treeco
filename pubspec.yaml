@@ -38,6 +38,7 @@ dependencies:
   provider: ^4.3.2
   lottie: ^0.5.1
   flutter_cupertino_date_picker: ^1.0.26+2
+  material_design_icons_flutter: ^4.0.5555
 
 
 dev_dependencies:
@@ -93,6 +94,9 @@ flutter:
           weight: 700
         - asset: assets/fonts/poppins/Poppins-Black.ttf
           weight: 800
+    - family: CustomIcons
+      fonts:
+        - asset: assets/custom_icons/leafcoin.ttf
 
   #   - family: Schyler
   #     fonts:

@@ -11,6 +11,8 @@ class ApplicationConstants {
   static const TEXT_GREEN = 0xff4D953D;
   static const TEXT_GREY = 0xff6A6A6A;
   static const LIGHT_GREEN = 0xff50A387;
+  static const BACKGROUND_COLOR = 0xff50A387;
+  static const BACKGROUND_COLOR2 = 0xff50A371;
   static const ANIMATION_DURATION = Duration(milliseconds: 200);
   static final DATE_FORMAT = DateFormat('dd-MM-yyyy');
 

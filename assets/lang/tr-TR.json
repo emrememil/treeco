@@ -20,5 +20,7 @@
     "confirmPassword": "Şifre Tekrar",
     "invalidName": "Geçersiz isim/Soyisim",
     "invalidPassword": "Şifre en az 8 karakter olmalıdır",
-    "notMatchPasswords": "Şifreler uyuşmuyor!"
+    "notMatchPasswords": "Şifreler uyuşmuyor!",
+    "proVersion": "Şimdi Pro'ya Geç",
+    "moreInfo": "Daha Fazla >"
 }

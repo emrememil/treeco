@@ -20,10 +20,9 @@
     "confirmPassword": "Confirm Password",
     "invalidName": "Invalid Name/Surname",
     "invalidPassword": "Password must be at least 8 characters",
-    "notMatchPasswords": "Password do not match!"
-
-
-
+    "notMatchPasswords": "Password do not match!",
+    "proVersion": "Pro Version",
+    "moreInfo": "More Info. >"
 
 
 }

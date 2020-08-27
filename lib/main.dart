@@ -5,6 +5,7 @@ import 'package:treeco/core/constants/app/app_constants.dart';
 import 'package:treeco/core/init/lang/language_manager.dart';
 import 'package:treeco/core/init/navigation/navigation_route.dart';
 import 'package:treeco/core/init/navigation/navigation_service.dart';
+import 'package:treeco/view/home/view/home_view.dart';
 import 'package:treeco/view/splash/view/splash_view.dart';
 
 import 'core/init/notifier/provider_list.dart';

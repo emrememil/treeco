@@ -6,6 +6,7 @@ import 'package:treeco/core/constants/app/app_constants.dart';
 import 'package:treeco/core/constants/navigation/navigation_constants.dart';
 import 'package:treeco/core/init/navigation/navigation_service.dart';
 import 'package:treeco/view/constants/size_config.dart';
+import 'package:treeco/view/home/view/home_view.dart';
 import 'package:treeco/view/onboarding/welcome/welcome_view.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     _checkForSession().then((status) {
       if (status) {
-        splashNavigator(WelcomeScreen());
+        splashNavigator(HomeScreen());
       }
       else{
         // ---TO DO---: NAVIGATE TO HOME PAGE!
