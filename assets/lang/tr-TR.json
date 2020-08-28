@@ -22,5 +22,15 @@
     "invalidPassword": "Şifre en az 8 karakter olmalıdır",
     "notMatchPasswords": "Şifreler uyuşmuyor!",
     "proVersion": "Şimdi Pro'ya Geç",
-    "moreInfo": "Daha Fazla >"
+    "moreInfo": "Daha Fazla >",
+    "timeLine": "Akış",
+    "friends": "Arkadaşlar",
+    "forest": "Orman",
+    "realForest": "Gerçek Orman",
+    "news": "Haberler",
+    "settings": "Ayarlar",
+    "profile": "Profil",
+    "achievements": "Başarılar",
+    "store": "Market"
+
 }

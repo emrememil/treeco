@@ -22,7 +22,16 @@
     "invalidPassword": "Password must be at least 8 characters",
     "notMatchPasswords": "Password do not match!",
     "proVersion": "Pro Version",
-    "moreInfo": "More Info. >"
+    "moreInfo": "More Info. >",
+    "timeLine": "Timeline",
+    "friends": "Friends",
+    "forest": "Forest",
+    "realForest": "Real Forest",
+    "news": "News",
+    "settings": "Settings",
+    "profile": "Profile",
+    "achievements": "Achievements",
+    "store": "Store"
 
 
 }
