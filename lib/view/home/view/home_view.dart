@@ -10,6 +10,7 @@ import 'package:treeco/view/constants/drawer/drawer.dart';
 import 'package:treeco/view/constants/size_config.dart';
 import 'package:treeco/view/home/model/home_model.dart';
 import 'package:treeco/view/home/view_model/home_view_model.dart';
+import 'package:treeco/core/extension/string_extension.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Color(ApplicationConstants.BACKGROUND_COLOR2),
+      statusBarColor: Color(ApplicationConstants.BACKGROUND_COLOR),
     ));
     return BaseView<HomeViewModel>(
       viewModel: HomeViewModel(),
@@ -38,32 +39,174 @@ class _HomeScreenState extends BaseState<HomeScreen> {
 
   get body => SafeArea(
         child: Scaffold(
+          backgroundColor: Color(ApplicationConstants.BACKGROUND_COLOR),
           key: _scaffoldKey,
-          appBar: AppBar(
-            backgroundColor: Color(ApplicationConstants.BACKGROUND_COLOR2),
-            elevation: 0,
-            iconTheme: IconThemeData(color: Colors.white),
-            leading: Padding(
-              padding: EdgeInsets.only(left: SizeConfig.getProportionateScreenWidth(10)),
-              child: IconButton(
-                icon: Icon(
-                  Icons.menu,
-                  size: SizeConfig.getProportionateScreenHeight(40),
-                  color: Colors.white,
-                ),
-                onPressed: () => _scaffoldKey.currentState.openDrawer(),
-              ),
-            ),
-            actions: <Widget>[coinIconActions],
-          ),
+          appBar: appBar,
           drawer: MainDrawer(),
-          body: Container(
-            width: SizeConfig.screenWidth,
-            height: SizeConfig.screenHeight,
-            color: Color(ApplicationConstants.BACKGROUND_COLOR2),
+          body: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              statisticsText,
+              statisticsContainer,
+              plantText,
+              Align(
+                alignment: Alignment.center,
+                child: Container(
+                  width: SizeConfig.screenWidth -
+                      SizeConfig.getProportionateScreenWidth(46),
+                  height: SizeConfig.screenHeight / 4,
+                  decoration: BoxDecoration(
+                    color: Color(0xff11806F),
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        spreadRadius: 0,
+                        blurRadius: 2,
+                        offset: Offset(0, 5),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      Image.asset(
+                        'assets/icons/coin.png',
+                        width: SizeConfig.screenWidth / 4,
+                        height: SizeConfig.screenHeight / 7,
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       );
+
+  AppBar get appBar {
+    return AppBar(
+          backgroundColor: Color(ApplicationConstants.BACKGROUND_COLOR),
+          elevation: 0,
+          iconTheme: IconThemeData(color: Colors.white),
+          leading: Padding(
+            padding: EdgeInsets.only(
+                left: SizeConfig.getProportionateScreenWidth(10)),
+            child: IconButton(
+              icon: Icon(
+                Icons.menu,
+                size: SizeConfig.getProportionateScreenHeight(40),
+                color: Colors.white,
+              ),
+              onPressed: () => _scaffoldKey.currentState.openDrawer(),
+            ),
+          ),
+          actions: <Widget>[coinIconActions],
+        );
+  }
+
+  Align get statisticsContainer {
+    return Align(
+      alignment: Alignment.center,
+      child: Container(
+        width:
+            SizeConfig.screenWidth - SizeConfig.getProportionateScreenWidth(46),
+        height: SizeConfig.getProportionateScreenHeight(65),
+        decoration: BoxDecoration(
+          color: Color(0xff58B294),
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              spreadRadius: 0,
+              blurRadius: 2,
+              offset: Offset(0, 5),
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Container(
+                width: SizeConfig.screenWidth / 2.5,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Color(0xff11806F),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'myRank'.locale,
+                        style: TextStyle(
+                          fontSize: SizeConfig.getProportionateScreenWidth(14),
+                          color: Colors.white,
+                          fontFamily: ApplicationConstants.FONT_FAMILY,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "112.765",
+                      style: TextStyle(
+                        fontSize: SizeConfig.getProportionateScreenWidth(14),
+                        color: Color(0xff2EE574),
+                        fontFamily: ApplicationConstants.FONT_FAMILY,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                width: 90,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    //Icon(MdiIcons.pineTree, color: Colors.green,)
+                    Image.asset(
+                      'assets/icons/tree.png',
+                      width: SizeConfig.getProportionateScreenWidth(24),
+                      height: SizeConfig.getProportionateScreenHeight(24),
+                    ),
+                    Text(
+                      "412",
+                      style: TextStyle(
+                        fontSize: SizeConfig.getProportionateScreenWidth(17),
+                        color: Colors.green,
+                        fontFamily: ApplicationConstants.FONT_FAMILY,
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Padding get statisticsText {
+    return Padding(
+      padding: EdgeInsets.only(
+          left: SizeConfig.getProportionateScreenWidth(25), top: 10, bottom: 5),
+      child: Text(
+        'statistics'.locale,
+        style: TextStyle(
+          fontSize: SizeConfig.getProportionateScreenWidth(14),
+          color: Colors.white,
+          fontFamily: ApplicationConstants.FONT_FAMILY,
+        ),
+      ),
+    );
+  }
 
   Padding get coinIconActions {
     return Padding(
@@ -73,7 +216,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
       child: Row(
         children: <Widget>[
           Container(
-            width: SizeConfig.getProportionateScreenWidth(55),
+            width: SizeConfig.getProportionateScreenWidth(65),
             height: SizeConfig.getProportionateScreenHeight(32),
             decoration: BoxDecoration(
                 color: Color(0xff3C7A65),
@@ -81,11 +224,11 @@ class _HomeScreenState extends BaseState<HomeScreen> {
             child: Row(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(left: 2.0),
-                  child: Icon(
-                    CustomIcons.coin,
-                    size: SizeConfig.getProportionateScreenHeight(28),
-                    color: Colors.orange,
+                  padding: EdgeInsets.only(left: 8.0),
+                  child: ImageIcon(
+                    AssetImage('assets/icons/coin.png'), //CustomIcons.coin,
+                    size: SizeConfig.getProportionateScreenHeight(20),
+                    color: Colors.yellow.shade700,
                   ),
                 ),
                 Padding(
@@ -105,5 +248,31 @@ class _HomeScreenState extends BaseState<HomeScreen> {
         ],
       ),
     );
+  }
+
+  Padding get plantText {
+    return Padding(
+      padding: EdgeInsets.only(
+          left: SizeConfig.getProportionateScreenWidth(25), top: 20, bottom: 5),
+      child: Text(
+        "Bugün bir ağaç dik!",
+        style: TextStyle(
+          fontSize: SizeConfig.getProportionateScreenWidth(14),
+          color: Colors.white,
+          fontFamily: ApplicationConstants.FONT_FAMILY,
+        ),
+      ),
+    );
+  }
+}
+
+class PlantOptions extends StatelessWidget {
+  final String text, imagePath;
+
+  const PlantOptions({Key key, this.text, this.imagePath}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

@@ -31,7 +31,9 @@
     "settings": "Settings",
     "profile": "Profile",
     "achievements": "Achievements",
-    "store": "Store"
+    "store": "Store",
+    "statistics": "Statistics",
+    "myRank": "MY RANK:"
 
 
 }

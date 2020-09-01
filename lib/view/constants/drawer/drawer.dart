@@ -9,7 +9,7 @@ class MainDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: SizeConfig.screenWidth / 2,
+      width: SizeConfig.screenWidth / 1.6,
       child: Drawer(
         child: Container(
           color: Color(ApplicationConstants.BACKGROUND_COLOR2),
