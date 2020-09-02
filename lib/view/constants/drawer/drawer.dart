@@ -12,7 +12,7 @@ class MainDrawer extends StatelessWidget {
       width: SizeConfig.screenWidth / 1.6,
       child: Drawer(
         child: Container(
-          color: Color(ApplicationConstants.BACKGROUND_COLOR2),
+          color: Color(ApplicationConstants.BACKGROUND_COLOR),
           child: ListView(
             children: <Widget>[
               drawerHeader,

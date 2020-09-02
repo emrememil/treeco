@@ -33,7 +33,13 @@
     "achievements": "Achievements",
     "store": "Store",
     "statistics": "Statistics",
-    "myRank": "MY RANK:"
+    "myRank": "MY RANK:",
+    "plantATreeToday": "Plant a tree today",
+    "plantOptionsCoin": "Plant a tree using a coin",
+    "plantOptionsQR": "Plant a tree using a QR Code",
+    "plantOptionsCode": "Plant a tree using disposable code",
+    "plantOptionsPremium": "Continue as Premium",
+    "currentProjects": "Current Projects"
 
 
 }
