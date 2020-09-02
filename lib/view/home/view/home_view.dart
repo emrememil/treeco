@@ -50,11 +50,8 @@ class _HomeScreenState extends BaseState<HomeScreen> {
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              //statisticsText,
               statisticsContainer,
-              //plantText,
               plantOptionsContainer,
-              //projectText,
               currentProjectContainer
             ],
           ),
@@ -64,114 +61,136 @@ class _HomeScreenState extends BaseState<HomeScreen> {
   Expanded get currentProjectContainer {
     return Expanded(
       child: Align(
-                alignment: Alignment.center,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    projectText,
-                    Container(
-                      width: SizeConfig.screenWidth -
-                          SizeConfig.getProportionateScreenWidth(32),
-                      height: SizeConfig.screenHeight / 3.8,
-                      decoration: BoxDecoration(
-                        color: Color(0xff92BEA7),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Swiper(
-                        itemCount: currentProjects.length,
-                        layout: SwiperLayout.DEFAULT,
-                        pagination: SwiperPagination(
-                            builder: DotSwiperPaginationBuilder(
-                                space: 3,
-                                size: 6,
-                                activeColor: Color(ApplicationConstants.DARK_GREEN))),
-                        itemBuilder: (context, index) {
-                          return Column(
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(currentProjects[index].title, style: TextStyle(
-                                    fontSize: SizeConfig.getProportionateScreenWidth(14),
-                                    color: Colors.white,
-                                    fontFamily: ApplicationConstants.FONT_FAMILY
-                                ),
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                                    child: Image.asset(currentProjects[index].imagePath),
-                                  ),
-                                  Padding(
-                                    padding:EdgeInsets.only(left:32),
-                                    child: Container(
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          Row(
-                                            children: <Widget>[
-                                              Icon(MdiIcons.pineTree, color: Colors.green.shade900,),
-                                              Padding(
-                                                padding: EdgeInsets.only(left:10.0),
-                                                child: Text(currentProjects[index].woodland,style: TextStyle(
-                                                    fontSize: SizeConfig.getProportionateScreenWidth(14),
-                                                    color: Colors.black,
-                                                    fontFamily: ApplicationConstants.FONT_FAMILY
-                                                ),),
-                                              )
-                                            ],
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(top:8.0),
-                                            child: Row(
-                                              children: <Widget>[
-                                                Icon(Icons.people,color: Colors.green.shade900),
-                                                Padding(
-                                                  padding: EdgeInsets.only(left:10.0),
-                                                  child: Text(currentProjects[index].population,style: TextStyle(
-                                                      fontSize: SizeConfig.getProportionateScreenWidth(14),
-                                                      color: Colors.black,
-                                                      fontFamily: ApplicationConstants.FONT_FAMILY
-                                                  ),),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(top:24.0),
-                                            child: Container(
-                                              height: SizeConfig.getProportionateScreenHeight(30),
-                                              child: RaisedButton(
-                                                shape: RoundedRectangleBorder(
-                                                    borderRadius: BorderRadius.circular(20)),
-                                                color: Color(0xff64CBA9),
-                                                onPressed: () {
-                                                },
-                                                child: Text(
-                                                  "Detay >",
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontFamily: ApplicationConstants.FONT_FAMILY),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              )
-                            ],
-                          );
-                        }
-                      ),
-                    ),
-                  ],
-                ),
+        alignment: Alignment.center,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            projectText,
+            Container(
+              width: SizeConfig.screenWidth -
+                  SizeConfig.getProportionateScreenWidth(32),
+              height: SizeConfig.screenHeight / 3.8,
+              decoration: BoxDecoration(
+                color: Color(0xff92BEA7),
+                borderRadius: BorderRadius.circular(10),
               ),
+              child: Swiper(
+                  itemCount: currentProjects.length,
+                  layout: SwiperLayout.DEFAULT,
+                  pagination: SwiperPagination(
+                      builder: DotSwiperPaginationBuilder(
+                          space: 3,
+                          size: 6,
+                          activeColor: Color(ApplicationConstants.DARK_GREEN))),
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: <Widget>[
+                        titleProject(index),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            mapImageProjectContainer(index),
+                            infoProject(index)
+                          ],
+                        )
+                      ],
+                    );
+                  }),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Padding titleProject(int index) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text(
+        currentProjects[index].title,
+        style: TextStyle(
+            fontSize: SizeConfig.getProportionateScreenWidth(14),
+            color: Colors.white,
+            fontFamily: ApplicationConstants.FONT_FAMILY),
+      ),
+    );
+  }
+
+  Padding mapImageProjectContainer(int index) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16), vertical: SizeConfig.getProportionateScreenHeight(8)),
+      child: Image.asset(currentProjects[index].imagePath),
+    );
+  }
+
+  Padding infoProject(int index) {
+    return Padding(
+      padding: EdgeInsets.only(left: 32),
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Icon(
+                  MdiIcons.pineTree,
+                  color: Colors.green.shade900,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 10.0),
+                  child: Text(
+                    currentProjects[index].woodland,
+                    style: TextStyle(
+                        fontSize: SizeConfig.getProportionateScreenWidth(14),
+                        color: Colors.black,
+                        fontFamily: ApplicationConstants.FONT_FAMILY),
+                  ),
+                )
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.getProportionateScreenHeight(8)),
+              child: Row(
+                children: <Widget>[
+                  Icon(Icons.people, color: Colors.green.shade900),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Text(
+                      currentProjects[index].population,
+                      style: TextStyle(
+                          fontSize: SizeConfig.getProportionateScreenWidth(14),
+                          color: Colors.black,
+                          fontFamily: ApplicationConstants.FONT_FAMILY),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            buttonDetailProject,
+          ],
+        ),
+      ),
+    );
+  }
+
+  Padding get buttonDetailProject {
+    return Padding(
+      padding: EdgeInsets.only(top: SizeConfig.getProportionateScreenHeight(16)),
+      child: Container(
+        height: SizeConfig.getProportionateScreenHeight(30),
+        child: RaisedButton(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          color: Color(0xff64CBA9),
+          onPressed: () {},
+          child: Text(
+            'details'.locale,
+            style: TextStyle(
+                color: Colors.white,
+                fontFamily: ApplicationConstants.FONT_FAMILY),
+          ),
+        ),
+      ),
     );
   }
 
@@ -221,7 +240,8 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                               style: TextStyle(
                                 color: Colors.white,
                                 fontFamily: ApplicationConstants.FONT_FAMILY2,
-                                fontSize: SizeConfig.getProportionateScreenWidth(15),
+                                fontSize:
+                                    SizeConfig.getProportionateScreenWidth(15),
                               ),
                             ),
                           ),
@@ -265,8 +285,8 @@ class _HomeScreenState extends BaseState<HomeScreen> {
         children: <Widget>[
           statisticsText,
           Container(
-            width:
-                SizeConfig.screenWidth - SizeConfig.getProportionateScreenWidth(32),
+            width: SizeConfig.screenWidth -
+                SizeConfig.getProportionateScreenWidth(32),
             height: SizeConfig.getProportionateScreenHeight(65),
             decoration: BoxDecoration(
               color: Color(0xff58B294),
@@ -299,7 +319,8 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                           child: Text(
                             'myRank'.locale,
                             style: TextStyle(
-                              fontSize: SizeConfig.getProportionateScreenWidth(14),
+                              fontSize:
+                                  SizeConfig.getProportionateScreenWidth(14),
                               color: Colors.white,
                               fontFamily: ApplicationConstants.FONT_FAMILY,
                             ),
@@ -308,7 +329,8 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                         Text(
                           "112.765",
                           style: TextStyle(
-                            fontSize: SizeConfig.getProportionateScreenWidth(14),
+                            fontSize:
+                                SizeConfig.getProportionateScreenWidth(14),
                             color: Color(0xff2EE574),
                             fontFamily: ApplicationConstants.FONT_FAMILY,
                           ),
@@ -335,7 +357,8 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                         Text(
                           "412",
                           style: TextStyle(
-                            fontSize: SizeConfig.getProportionateScreenWidth(17),
+                            fontSize:
+                                SizeConfig.getProportionateScreenWidth(17),
                             color: Color(ApplicationConstants.LIGHT_GREEN),
                             fontFamily: ApplicationConstants.FONT_FAMILY,
                           ),
@@ -355,7 +378,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
   Padding get statisticsText {
     return Padding(
       padding: EdgeInsets.only(
-          left: SizeConfig.getProportionateScreenWidth(8), top: 10, bottom: 5),
+          left: SizeConfig.getProportionateScreenWidth(8), top: SizeConfig.getProportionateScreenHeight(10), bottom: 5),
       child: Text(
         'statistics'.locale,
         style: TextStyle(
@@ -412,7 +435,9 @@ class _HomeScreenState extends BaseState<HomeScreen> {
   Padding get plantText {
     return Padding(
       padding: EdgeInsets.only(
-          left: SizeConfig.getProportionateScreenWidth(8), top: 20, bottom: 5),
+          left: SizeConfig.getProportionateScreenWidth(8),
+          top: SizeConfig.getProportionateScreenHeight(28),
+          bottom: 5),
       child: Text(
         'plantATreeToday'.locale,
         style: TextStyle(
@@ -427,7 +452,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
   Padding get projectText {
     return Padding(
       padding: EdgeInsets.only(
-          left: SizeConfig.getProportionateScreenWidth(8), top: 20, bottom: 5),
+          left: SizeConfig.getProportionateScreenWidth(8), top: 2, bottom: 2),
       child: Text(
         'currentProjects'.locale,
         style: TextStyle(
