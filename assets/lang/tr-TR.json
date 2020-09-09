@@ -40,6 +40,13 @@
     "plantOptionsCode": "Tek kullanımlık kod kullanarak bir ağaç dik",
     "plantOptionsPremium": "Premium olarak devam et",
     "currentProjects": "Güncel Projeler",
-    "details": "Detaylar >"
+    "details": "Detaylar >",
+    "projectsIParticipatedIn": "Katıldığım Projeler",
+    "editProfile": "Profili Düzenle",
+    "plantedTree": "Dikili Ağaç",
+    "rank": "Sıralama",
+    "planted": " Ağaç dikildi!",
+    "heroes": " Kahraman"
+
 
 }

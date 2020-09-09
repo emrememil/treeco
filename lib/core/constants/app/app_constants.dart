@@ -13,6 +13,7 @@ class ApplicationConstants {
   static const LIGHT_GREEN = 0xff50A387;
   static const BACKGROUND_COLOR = 0xff50A387;
   static const BACKGROUND_COLOR2 = 0xff50A371;
+  static const BACKGROUND_IMAGE_PROFILE = 'assets/backgrounds/profile_background.png';
   static const ANIMATION_DURATION = Duration(milliseconds: 200);
   static final DATE_FORMAT = DateFormat('dd-MM-yyyy');
 

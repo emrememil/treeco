@@ -40,7 +40,13 @@
     "plantOptionsCode": "Plant a tree using disposable code",
     "plantOptionsPremium": "Continue as Premium",
     "currentProjects": "Current Projects",
-    "details": "Details >"
+    "details": "Details >",
+    "projectsIParticipatedIn": "Projects I Participated In",
+    "editProfile": "Edit Profile",
+    "plantedTree": "Planted Tree",
+    "rank": "My Rank",
+    "planted": " Planted",
+    "heroes": " Heroes"
 
 
 }
