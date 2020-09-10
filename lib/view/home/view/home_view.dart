@@ -69,7 +69,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
             Container(
               width: SizeConfig.screenWidth -
                   SizeConfig.getProportionateScreenWidth(32),
-              height: SizeConfig.screenHeight / 3.8,
+              height: SizeConfig.screenHeight / 3.5,
               decoration: BoxDecoration(
                 color: Color(0xff92BEA7),
                 borderRadius: BorderRadius.circular(10),
@@ -109,7 +109,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
       child: Text(
         currentProjects[index].title,
         style: TextStyle(
-            fontSize: SizeConfig.getProportionateScreenWidth(14),
+            fontSize: SizeConfig.textMultiplier*2,
             color: Colors.white,
             fontFamily: ApplicationConstants.FONT_FAMILY),
       ),
@@ -118,8 +118,8 @@ class _HomeScreenState extends BaseState<HomeScreen> {
 
   Padding mapImageProjectContainer(int index) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16), vertical: SizeConfig.getProportionateScreenHeight(8)),
-      child: Image.asset(currentProjects[index].imagePath),
+      padding: EdgeInsets.only(left: 16, top:8),
+      child: Image.asset(currentProjects[index].imagePath,width: SizeConfig.imageSizeMultiplier*35,),
     );
   }
 
@@ -229,9 +229,12 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                   itemBuilder: (context, index) {
                     return Row(
                       children: <Widget>[
-                        Lottie.asset(plantOptions[index].imagePath,
-                            fit: BoxFit.fill,
-                            width: SizeConfig.getProportionateScreenWidth(150)),
+                        Padding(
+                          padding:  EdgeInsets.only(left:16.0,right: 8),
+                          child: Lottie.asset(plantOptions[index].imagePath,
+                              fit: BoxFit.fill,
+                              width: SizeConfig.imageSizeMultiplier*25),
+                        ),
                         Expanded(
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -241,7 +244,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                                 color: Colors.white,
                                 fontFamily: ApplicationConstants.FONT_FAMILY2,
                                 fontSize:
-                                    SizeConfig.getProportionateScreenWidth(15),
+                                    SizeConfig.textMultiplier*2.3,
                               ),
                             ),
                           ),
@@ -306,8 +309,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Container(
-                    width: SizeConfig.screenWidth / 2.5,
-                    height: 40,
+                    height: SizeConfig.getProportionateScreenHeight(40),
                     decoration: BoxDecoration(
                       color: Color(0xff11806F),
                       borderRadius: BorderRadius.circular(20),
@@ -315,32 +317,34 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                     child: Row(
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.symmetric(horizontal:8.0),
                           child: Text(
                             'myRank'.locale,
                             style: TextStyle(
                               fontSize:
-                                  SizeConfig.getProportionateScreenWidth(14),
+                                  SizeConfig.textMultiplier*2,
                               color: Colors.white,
                               fontFamily: ApplicationConstants.FONT_FAMILY,
                             ),
                           ),
                         ),
-                        Text(
-                          "112.765",
-                          style: TextStyle(
-                            fontSize:
-                                SizeConfig.getProportionateScreenWidth(14),
-                            color: Color(0xff2EE574),
-                            fontFamily: ApplicationConstants.FONT_FAMILY,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal:8.0),
+                          child: Text(
+                            "112.765",
+                            style: TextStyle(
+                              fontSize:
+                              SizeConfig.textMultiplier*2,
+                              color: Color(0xff2EE574),
+                              fontFamily: ApplicationConstants.FONT_FAMILY,
+                            ),
                           ),
                         )
                       ],
                     ),
                   ),
                   Container(
-                    width: 90,
-                    height: 40,
+                    height: SizeConfig.getProportionateScreenHeight(40),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
@@ -349,18 +353,24 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         //Icon(MdiIcons.pineTree, color: Colors.green,)
-                        Image.asset(
-                          'assets/icons/tree.png',
-                          width: SizeConfig.getProportionateScreenWidth(24),
-                          height: SizeConfig.getProportionateScreenHeight(24),
+                        Padding(
+                          padding: const EdgeInsets.only(right:8.0,left:12),
+                          child: Image.asset(
+                            'assets/icons/tree.png',
+                            width: SizeConfig.imageSizeMultiplier*4.5,
+                            height: SizeConfig.imageSizeMultiplier*4.5,
+                          ),
                         ),
-                        Text(
-                          "412",
-                          style: TextStyle(
-                            fontSize:
-                                SizeConfig.getProportionateScreenWidth(17),
-                            color: Color(ApplicationConstants.LIGHT_GREEN),
-                            fontFamily: ApplicationConstants.FONT_FAMILY,
+                        Padding(
+                          padding:  EdgeInsets.only(right:12.0),
+                          child: Text(
+                            "412",
+                            style: TextStyle(
+                              fontSize:
+                                  SizeConfig.textMultiplier*2,
+                              color: Color(ApplicationConstants.LIGHT_GREEN),
+                              fontFamily: ApplicationConstants.FONT_FAMILY,
+                            ),
                           ),
                         )
                       ],
@@ -382,7 +392,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
       child: Text(
         'statistics'.locale,
         style: TextStyle(
-          fontSize: SizeConfig.getProportionateScreenWidth(14),
+          fontSize: SizeConfig.textMultiplier*2,
           color: Colors.white,
           fontFamily: ApplicationConstants.FONT_FAMILY,
         ),
@@ -441,7 +451,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
       child: Text(
         'plantATreeToday'.locale,
         style: TextStyle(
-          fontSize: SizeConfig.getProportionateScreenWidth(14),
+          fontSize: SizeConfig.textMultiplier*2,
           color: Colors.white,
           fontFamily: ApplicationConstants.FONT_FAMILY,
         ),
@@ -456,7 +466,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
       child: Text(
         'currentProjects'.locale,
         style: TextStyle(
-          fontSize: SizeConfig.getProportionateScreenWidth(14),
+          fontSize: SizeConfig.textMultiplier*2,
           color: Colors.white,
           fontFamily: ApplicationConstants.FONT_FAMILY,
         ),

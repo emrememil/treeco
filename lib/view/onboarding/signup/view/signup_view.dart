@@ -42,49 +42,55 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
 
   get body => SafeArea(
         child: Scaffold(
-          resizeToAvoidBottomInset: false,
+          //resizeToAvoidBottomInset: false,
           //resizeToAvoidBottomPadding: false,
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
             iconTheme: IconThemeData(color: Colors.black),
           ),
-          body: Container(
-            child: Column(
-              children: <Widget>[
-                signUpTitle,
-                Form(
-                  key: formKey,
-                  autovalidate: false,
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        height: SizeConfig.getProportionateScreenHeight(24),
-                      ),
-                      nameAndSurnameInput,
-                      SizedBox(
-                        height: SizeConfig.getProportionateScreenHeight(18),
-                      ),
-                      emailInput,
-                      SizedBox(
-                        height: SizeConfig.getProportionateScreenHeight(18),
-                      ),
-                      passwordInput,
-                      SizedBox(
-                        height: SizeConfig.getProportionateScreenHeight(18),
-                      ),
-                      confirmPasswordInput,
-                      SizedBox(
-                        height: SizeConfig.getProportionateScreenHeight(18),
-                      ),
-                    ],
+          body: SingleChildScrollView(
+            child: Container(
+              child: Column(
+                children: <Widget>[
+                  signUpTitle,
+                  Form(
+                    key: formKey,
+                    autovalidate: false,
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: SizeConfig.getProportionateScreenHeight(24),
+                        ),
+                        nameAndSurnameInput,
+                        SizedBox(
+                          height: SizeConfig.getProportionateScreenHeight(12),
+                        ),
+                        usernameInput,
+                        SizedBox(
+                          height: SizeConfig.getProportionateScreenHeight(12),
+                        ),
+                        emailInput,
+                        SizedBox(
+                          height: SizeConfig.getProportionateScreenHeight(12),
+                        ),
+                        passwordInput,
+                        SizedBox(
+                          height: SizeConfig.getProportionateScreenHeight(12),
+                        ),
+                        confirmPasswordInput,
+                        SizedBox(
+                          height: SizeConfig.getProportionateScreenHeight(12),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                signUpButton,
-                dividerOR,
-                socialMediaIconButtons,
-                alreadyHaveAccount
-              ],
+                  signUpButton,
+                  dividerOR,
+                  socialMediaIconButtons,
+                  alreadyHaveAccount
+                ],
+              ),
             ),
           ),
         ),
@@ -141,6 +147,45 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
               return "";
             } else {
               return 'invalidName'.locale;
+            }
+          }),
+    );
+  }
+
+  Padding get usernameInput {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+          horizontal: SizeConfig.getProportionateScreenWidth(24)),
+      child: TextFormField(
+          decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(
+                horizontal: SizeConfig.getProportionateScreenWidth(24),
+                vertical: SizeConfig.getProportionateScreenHeight(18)),
+            labelText: 'username'.locale,
+            fillColor: Colors.green,
+            hoverColor: Color(ApplicationConstants.DARK_GREEN),
+            border: OutlineInputBorder(
+              borderRadius: new BorderRadius.circular(35.0),
+              borderSide: new BorderSide(),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: new BorderRadius.circular(35.0),
+              borderSide:
+              new BorderSide(color: Color(ApplicationConstants.DARK_GREEN)),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: new BorderRadius.circular(35.0),
+              borderSide:
+              new BorderSide(color: Color(ApplicationConstants.DARK_GREEN)),
+            ),
+          ),
+          keyboardType: TextInputType.text,
+          style: TextStyle(fontFamily: ApplicationConstants.FONT_FAMILY2),
+          validator: (value) {
+            if (value.length >= 6) {
+              return "";
+            } else {
+              return 'invalidUsername'.locale;
             }
           }),
     );
@@ -379,40 +424,36 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
   }
 
   get alreadyHaveAccount {
-    return Expanded(
-      child: Container(
-        width: double.infinity,
-        height: double.infinity,
-        alignment: Alignment.bottomCenter,
-        child: Padding(
-          padding: EdgeInsets.only(bottom:SizeConfig.getProportionateScreenHeight(30)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'alreadyHaveAnAccount'.locale,
+    return Container(
+      alignment: Alignment.bottomCenter,
+      child: Padding(
+        padding: EdgeInsets.only(top:SizeConfig.getProportionateScreenHeight(50)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'alreadyHaveAnAccount'.locale,
+              style: TextStyle(
+                  fontFamily: ApplicationConstants.FONT_FAMILY2,
+                  color: Color(ApplicationConstants.TEXT_GREY),
+                  fontSize: SizeConfig.getProportionateScreenWidth(13)),
+            ),
+            GestureDetector(
+              onTap: (){
+                NavigationService.instance.navigatePop();
+                NavigationService.instance.navigateToPage(path: NavigationConstants.SIGN_IN);
+              },
+              child: Text(
+                'signInButton'.locale,
                 style: TextStyle(
-                    fontFamily: ApplicationConstants.FONT_FAMILY2,
-                    color: Color(ApplicationConstants.TEXT_GREY),
-                    fontSize: SizeConfig.getProportionateScreenWidth(13)),
-              ),
-              GestureDetector(
-                onTap: (){
-                  NavigationService.instance.navigatePop();
-                  NavigationService.instance.navigateToPage(path: NavigationConstants.SIGN_IN);
-                },
-                child: Text(
-                  'signInButton'.locale,
-                  style: TextStyle(
-                    fontFamily: ApplicationConstants.FONT_FAMILY2,
-                    color: Colors.blue,
-                    fontSize: SizeConfig.getProportionateScreenWidth(13),
-                    fontWeight: FontWeight.bold,
-                  ),
+                  fontFamily: ApplicationConstants.FONT_FAMILY2,
+                  color: Colors.blue,
+                  fontSize: SizeConfig.getProportionateScreenWidth(13),
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

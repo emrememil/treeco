@@ -59,6 +59,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       color: Color(ApplicationConstants.DARK_GREEN),
                       fontFamily: ApplicationConstants.FONT_FAMILY),
                 ),
+                Text(
+                  "@emrememil",
+                  style: TextStyle(
+                      fontSize: SizeConfig.getProportionateScreenWidth(13),
+                      color: Color(ApplicationConstants.DARK_GREEN),
+                      fontFamily: ApplicationConstants.FONT_FAMILY),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: CircleAvatar(
@@ -138,7 +145,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Padding get editProfileButton {
     return Padding(
-      padding: EdgeInsets.only(top: 24.0),
+      padding: EdgeInsets.only(top: 16.0),
       child: SizedBox(
         width: double.infinity,
         height: SizeConfig.getProportionateScreenHeight(35),

@@ -62,6 +62,17 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                               fontFamily: ApplicationConstants.FONT_FAMILY),
                         ),
                       ),
+                      Padding(
+                        padding:  EdgeInsets.symmetric(horizontal: 16.0),
+                        child: TextFormField(
+                          decoration:
+                          InputDecoration(labelText: 'email'.locale,),
+                          style: TextStyle(
+                              fontSize: SizeConfig.getProportionateScreenWidth(14),
+                              color: Colors.black,
+                              fontFamily: ApplicationConstants.FONT_FAMILY),
+                        ),
+                      ),
                     ],
                   ),
                 )
