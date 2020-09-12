@@ -74,7 +74,7 @@ class _SplashScreenState extends State<SplashScreen> {
           "T",
           style: TextStyle(
               color: Colors.white,
-              fontSize: 70,
+              fontSize: SizeConfig.textMultiplier*10,
               fontFamily: ApplicationConstants.FONT_FAMILY,
               fontWeight: FontWeight.w800
           ),
@@ -83,7 +83,7 @@ class _SplashScreenState extends State<SplashScreen> {
           "REECO",
           style: TextStyle(
               color: Colors.white,
-              fontSize: 50,
+              fontSize: SizeConfig.textMultiplier*7.5,
               fontFamily: ApplicationConstants.FONT_FAMILY,
               fontWeight: FontWeight.w800
           ),

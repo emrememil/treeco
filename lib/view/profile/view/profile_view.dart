@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:treeco/core/constants/enums/device_screen_type.dart';
 import 'package:treeco/core/constants/navigation/navigation_constants.dart';
 import 'package:treeco/core/extension/string_extension.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -7,6 +8,7 @@ import 'package:treeco/core/base/view/base_widget.dart';
 import 'package:treeco/core/constants/app/app_constants.dart';
 import 'package:treeco/core/init/navigation/navigation_service.dart';
 import 'package:treeco/view/constants/size_config.dart';
+import 'package:treeco/view/constants/ui_utils.dart';
 import 'package:treeco/view/profile/model/joined_project.dart';
 import 'package:treeco/view/profile/model/profile_model.dart';
 import 'package:treeco/view/profile/view_model/profile_view_model.dart';
@@ -33,94 +35,96 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  get body =>
-      SafeArea(
-        child: Scaffold(
-          appBar: appBar,
-          body: Container(
-            width: SizeConfig.screenWidth,
-            height: SizeConfig.screenHeight,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image:
-                    AssetImage(ApplicationConstants.BACKGROUND_IMAGE_PROFILE),
-                    fit: BoxFit.cover,
-                    colorFilter: ColorFilter.mode(
-                        Colors.white.withOpacity(0.5), BlendMode.dstATop))),
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: SizeConfig.getProportionateScreenHeight(10),
-                ),
-                Text(
-                  "Emre Memil",
-                  style: TextStyle(
-                      fontSize: SizeConfig.getProportionateScreenWidth(18),
-                      color: Color(ApplicationConstants.DARK_GREEN),
-                      fontFamily: ApplicationConstants.FONT_FAMILY),
-                ),
-                Text(
-                  "@emrememil",
-                  style: TextStyle(
-                      fontSize: SizeConfig.getProportionateScreenWidth(13),
-                      color: Color(ApplicationConstants.DARK_GREEN),
-                      fontFamily: ApplicationConstants.FONT_FAMILY),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: CircleAvatar(
-                    radius: 85,
-                    backgroundColor: Color(ApplicationConstants.TEXT_GREEN),
-                    child: CircleAvatar(
-                      radius: 82,
-                      backgroundImage: AssetImage("assets/images/pp.png"),
-                    ),
-                  ),
-                ),
-                statisticContainers,
-                editProfileButton,
-                SizedBox(height: SizeConfig.getProportionateScreenHeight(16),),
-                joinedProjectText,
-                joinedProjectContainer,
-              ],
-            ),
+  get body => Scaffold(
+        appBar: appBar,
+        body: Container(
+          width: SizeConfig.screenWidth,
+          height: SizeConfig.screenHeight,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image:
+                      AssetImage(ApplicationConstants.BACKGROUND_IMAGE_PROFILE),
+                  fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(
+                      Colors.white.withOpacity(0.5), BlendMode.dstATop))),
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: SizeConfig.getProportionateScreenHeight(10),
+              ),
+              Text(
+                "Emre Memil",
+                style: TextStyle(
+                    fontSize: SizeConfig.getProportionateScreenWidth(15),
+                    color: Color(ApplicationConstants.DARK_GREEN),
+                    fontFamily: ApplicationConstants.FONT_FAMILY),
+              ),
+              Text(
+                "@emrememil",
+                style: TextStyle(
+                    fontSize: SizeConfig.getProportionateScreenWidth(11),
+                    color: Color(ApplicationConstants.DARK_GREEN),
+                    fontFamily: ApplicationConstants.FONT_FAMILY),
+              ),
+              profilePicture,
+              statisticContainers,
+              editProfileButton,
+              SizedBox(
+                height: SizeConfig.getProportionateScreenHeight(8),
+              ),
+              joinedProjectText,
+              joinedProjectContainer,
+            ],
           ),
         ),
       );
 
+  Padding get profilePicture {
+    return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                radius: SizeConfig.getProportionateScreenWidth(78),
+                backgroundColor: Color(ApplicationConstants.TEXT_GREEN),
+                child: CircleAvatar(
+                  radius: SizeConfig.getProportionateScreenWidth(75),
+                  backgroundImage: AssetImage("assets/images/pp.png"),
+                ),
+              ),
+            );
+  }
+
   Container get joinedProjectContainer {
     return Container(
-                width: SizeConfig.screenWidth -
-                    SizeConfig.getProportionateScreenWidth(32),
-                height: SizeConfig.screenHeight / 3.8,
-                decoration: BoxDecoration(
-                  color: Color(0xff92BEA7),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Swiper(
-                    itemCount: joinedProjects.length,
-                    layout: SwiperLayout.DEFAULT,
-                    pagination: SwiperPagination(
-                        builder: DotSwiperPaginationBuilder(
-                            space: 3,
-                            size: 6,
-                            activeColor: Color(
-                                ApplicationConstants.DARK_GREEN))),
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: <Widget>[
-                          titleProject(index),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              mapImageProjectContainer(index),
-                              infoProject(index)
-                            ],
-                          )
-                        ],
-                      );
-                    }),
-              );
+      width:
+          SizeConfig.screenWidth - SizeConfig.getProportionateScreenWidth(32),
+      height: SizeConfig.blockSizeVertical * 25,
+      //SizeConfig.screenHeight / 3.8,
+      decoration: BoxDecoration(
+        color: Color(0xff92BEA7),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Swiper(
+          itemCount: joinedProjects.length,
+          layout: SwiperLayout.DEFAULT,
+          pagination: SwiperPagination(
+              builder: DotSwiperPaginationBuilder(
+                  space: 3,
+                  size: 6,
+                  activeColor: Color(ApplicationConstants.DARK_GREEN))),
+          itemBuilder: (context, index) {
+            return Column(
+              children: <Widget>[
+                titleProject(index),
+                Row(
+                  children: <Widget>[
+                    mapImageProjectContainer(index),
+                    infoProject(index)
+                  ],
+                )
+              ],
+            );
+          }),
+    );
   }
 
   Container get joinedProjectText {
@@ -134,7 +138,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Text(
           'projectsIParticipatedIn'.locale,
           style: TextStyle(
-            fontSize: SizeConfig.getProportionateScreenWidth(14),
+            fontSize: SizeConfig.getProportionateScreenWidth(13),
             color: Colors.black,
             fontFamily: ApplicationConstants.FONT_FAMILY,
           ),
@@ -145,7 +149,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Padding get editProfileButton {
     return Padding(
-      padding: EdgeInsets.only(top: 16.0),
+      padding: EdgeInsets.only(top: SizeConfig.getProportionateScreenWidth(16)),
       child: SizedBox(
         width: double.infinity,
         height: SizeConfig.getProportionateScreenHeight(35),
@@ -154,15 +158,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
               horizontal: SizeConfig.getProportionateScreenWidth(16)),
           child: RaisedButton(
             shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             color: Color(0xff11806F),
             onPressed: () {
-              NavigationService.instance.navigateToPage(path: NavigationConstants.PROFILE_EDIT);
+              NavigationService.instance
+                  .navigateToPage(path: NavigationConstants.PROFILE_EDIT);
             },
             child: Text(
               'editProfile'.locale,
               style: TextStyle(
                   color: Colors.white,
+                  fontSize: SizeConfig.getProportionateScreenWidth(13),
                   fontFamily: ApplicationConstants.FONT_FAMILY),
             ),
           ),
@@ -177,7 +183,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       children: <Widget>[
         Padding(
           padding:
-          EdgeInsets.only(left: SizeConfig.getProportionateScreenWidth(16)),
+              EdgeInsets.only(left: SizeConfig.getProportionateScreenWidth(16)),
           child: RotationTransition(
             turns: AlwaysStoppedAnimation(-6 / 360),
             child: Container(
@@ -208,7 +214,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Text(
                     'plantedTree'.locale,
                     style: TextStyle(
-                        fontSize: SizeConfig.getProportionateScreenWidth(14),
+                        fontSize: SizeConfig.getProportionateScreenWidth(13),
                         color: Color(ApplicationConstants.TEXT_GREY),
                         fontFamily: ApplicationConstants.FONT_FAMILY),
                   )
@@ -253,7 +259,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Text(
                     'rank'.locale,
                     style: TextStyle(
-                        fontSize: SizeConfig.getProportionateScreenWidth(14),
+                        fontSize: SizeConfig.getProportionateScreenWidth(13),
                         color: Color(ApplicationConstants.TEXT_GREY),
                         fontFamily: ApplicationConstants.FONT_FAMILY),
                   )
@@ -283,6 +289,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Icon(
               MdiIcons.pineTree,
               color: Color(ApplicationConstants.LIGHT_GREEN),
+              size: SizeConfig.getProportionateScreenWidth(20),
             ),
             Text(
               "15",
@@ -325,7 +332,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       child: Text(
         joinedProjects[index].title,
         style: TextStyle(
-            fontSize: SizeConfig.getProportionateScreenWidth(14),
+            fontSize: SizeConfig.getProportionateScreenWidth(13),
             color: Colors.white,
             fontFamily: ApplicationConstants.FONT_FAMILY),
       ),
@@ -334,14 +341,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Padding mapImageProjectContainer(int index) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16), vertical: SizeConfig.getProportionateScreenHeight(8)),
-      child: Image.asset(joinedProjects[index].imagePath),
+      padding: EdgeInsets.only(
+          left: SizeConfig.blockSizeHorizontal * 2,
+          top: SizeConfig.blockSizeVertical * 1.2),
+      child: Image.asset(joinedProjects[index].imagePath,
+          width:
+              (getDeviceType(SizeConfig.screenWidth) == DeviceScreenType.Mobile)
+                  ? SizeConfig.imageSizeMultiplier * 32
+                  : SizeConfig.imageSizeMultiplier * 25,
+          fit: BoxFit.fill),
     );
   }
 
   Padding infoProject(int index) {
     return Padding(
-      padding: EdgeInsets.only(left: 16),
+      padding:
+          EdgeInsets.only(left: SizeConfig.getProportionateScreenWidth(16)),
       child: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -353,11 +368,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   color: Colors.green.shade900,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 10.0),
+                  padding: EdgeInsets.only(
+                      left: SizeConfig.getProportionateScreenWidth(8)),
                   child: Text(
-                    joinedProjects[index].plantedTreeCount +'planted'.locale,
+                    joinedProjects[index].plantedTreeCount + 'planted'.locale,
                     style: TextStyle(
-                        fontSize: SizeConfig.getProportionateScreenWidth(14),
+                        fontSize: SizeConfig.getProportionateScreenWidth(12),
                         color: Colors.black,
                         fontFamily: ApplicationConstants.FONT_FAMILY2),
                   ),
@@ -365,16 +381,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(top: SizeConfig.getProportionateScreenHeight(8)),
+              padding: EdgeInsets.only(
+                  top: SizeConfig.getProportionateScreenHeight(8)),
               child: Row(
                 children: <Widget>[
                   Icon(Icons.people, color: Colors.green.shade900),
                   Padding(
-                    padding: EdgeInsets.only(left: 10.0),
+                    padding: EdgeInsets.only(
+                        left: SizeConfig.getProportionateScreenWidth(8)),
                     child: Text(
-                      joinedProjects[index].heroes +'heroes'.locale,
+                      joinedProjects[index].heroes + 'heroes'.locale,
                       style: TextStyle(
-                          fontSize: SizeConfig.getProportionateScreenWidth(14),
+                          fontSize: SizeConfig.getProportionateScreenWidth(12),
                           color: Colors.black,
                           fontFamily: ApplicationConstants.FONT_FAMILY2),
                     ),
@@ -391,19 +409,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Padding get buttonDetailProject {
     return Padding(
-      padding: EdgeInsets.only(top: SizeConfig.getProportionateScreenHeight(16),
-      left: SizeConfig.getProportionateScreenWidth(32)),
+      padding: EdgeInsets.only(
+          top: SizeConfig.getProportionateScreenHeight(16),
+          left: SizeConfig.getProportionateScreenWidth(32)),
       child: Container(
         height: SizeConfig.getProportionateScreenHeight(30),
         child: RaisedButton(
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           color: Color(0xff64CBA9),
           onPressed: () {},
           child: Text(
             'details'.locale,
             style: TextStyle(
                 color: Colors.white,
+                fontSize: SizeConfig.getProportionateScreenWidth(13),
                 fontFamily: ApplicationConstants.FONT_FAMILY),
           ),
         ),

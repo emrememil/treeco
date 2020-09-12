@@ -40,61 +40,59 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
     );
   }
 
-  get body => SafeArea(
-        child: Scaffold(
-          //resizeToAvoidBottomInset: false,
-          //resizeToAvoidBottomPadding: false,
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            iconTheme: IconThemeData(color: Colors.black),
-          ),
-          body: SingleChildScrollView(
-            child: Container(
+  get body => Scaffold(
+    //resizeToAvoidBottomInset: false,
+    //resizeToAvoidBottomPadding: false,
+    appBar: AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      iconTheme: IconThemeData(color: Colors.black),
+    ),
+    body: SingleChildScrollView(
+      child: Container(
+        child: Column(
+          children: <Widget>[
+            signUpTitle,
+            Form(
+              key: formKey,
+              autovalidate: false,
               child: Column(
                 children: <Widget>[
-                  signUpTitle,
-                  Form(
-                    key: formKey,
-                    autovalidate: false,
-                    child: Column(
-                      children: <Widget>[
-                        SizedBox(
-                          height: SizeConfig.getProportionateScreenHeight(24),
-                        ),
-                        nameAndSurnameInput,
-                        SizedBox(
-                          height: SizeConfig.getProportionateScreenHeight(12),
-                        ),
-                        usernameInput,
-                        SizedBox(
-                          height: SizeConfig.getProportionateScreenHeight(12),
-                        ),
-                        emailInput,
-                        SizedBox(
-                          height: SizeConfig.getProportionateScreenHeight(12),
-                        ),
-                        passwordInput,
-                        SizedBox(
-                          height: SizeConfig.getProportionateScreenHeight(12),
-                        ),
-                        confirmPasswordInput,
-                        SizedBox(
-                          height: SizeConfig.getProportionateScreenHeight(12),
-                        ),
-                      ],
-                    ),
+                  SizedBox(
+                    height: SizeConfig.getProportionateScreenHeight(24),
                   ),
-                  signUpButton,
-                  dividerOR,
-                  socialMediaIconButtons,
-                  alreadyHaveAccount
+                  nameAndSurnameInput,
+                  SizedBox(
+                    height: SizeConfig.getProportionateScreenHeight(12),
+                  ),
+                  usernameInput,
+                  SizedBox(
+                    height: SizeConfig.getProportionateScreenHeight(12),
+                  ),
+                  emailInput,
+                  SizedBox(
+                    height: SizeConfig.getProportionateScreenHeight(12),
+                  ),
+                  passwordInput,
+                  SizedBox(
+                    height: SizeConfig.getProportionateScreenHeight(12),
+                  ),
+                  confirmPasswordInput,
+                  SizedBox(
+                    height: SizeConfig.getProportionateScreenHeight(12),
+                  ),
                 ],
               ),
             ),
-          ),
+            signUpButton,
+            dividerOR,
+            socialMediaIconButtons,
+            alreadyHaveAccount
+          ],
         ),
-      );
+      ),
+    ),
+  );
 
   Container get signUpTitle {
     return Container(
@@ -123,6 +121,7 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
                 horizontal: SizeConfig.getProportionateScreenWidth(24),
                 vertical: SizeConfig.getProportionateScreenHeight(18)),
             labelText: 'nameAndSurname'.locale,
+            labelStyle: TextStyle(fontSize: SizeConfig.getProportionateScreenWidth(13)),
             fillColor: Colors.green,
             hoverColor: Color(ApplicationConstants.DARK_GREEN),
             border: OutlineInputBorder(
@@ -162,6 +161,7 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
                 horizontal: SizeConfig.getProportionateScreenWidth(24),
                 vertical: SizeConfig.getProportionateScreenHeight(18)),
             labelText: 'username'.locale,
+            labelStyle: TextStyle(fontSize: SizeConfig.getProportionateScreenWidth(13)),
             fillColor: Colors.green,
             hoverColor: Color(ApplicationConstants.DARK_GREEN),
             border: OutlineInputBorder(
@@ -202,6 +202,7 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
                   horizontal: SizeConfig.getProportionateScreenWidth(24),
                   vertical: SizeConfig.getProportionateScreenHeight(18)),
               labelText: 'email'.locale,
+              labelStyle: TextStyle(fontSize: SizeConfig.getProportionateScreenWidth(13)),
               fillColor: Colors.green,
               hoverColor: Color(ApplicationConstants.DARK_GREEN),
               border: OutlineInputBorder(
@@ -254,6 +255,7 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
                   horizontal: SizeConfig.getProportionateScreenWidth(24),
                   vertical: SizeConfig.getProportionateScreenHeight(18)),
               labelText: 'password'.locale,
+              labelStyle: TextStyle(fontSize: SizeConfig.getProportionateScreenWidth(13)),
               fillColor: Colors.green,
               hoverColor: Color(ApplicationConstants.DARK_GREEN),
               border: OutlineInputBorder(
@@ -308,6 +310,7 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
                   horizontal: SizeConfig.getProportionateScreenWidth(24),
                   vertical: SizeConfig.getProportionateScreenHeight(18)),
               labelText: 'confirmPassword'.locale,
+              labelStyle: TextStyle(fontSize: SizeConfig.getProportionateScreenWidth(13)),
               fillColor: Colors.green,
               hoverColor: Color(ApplicationConstants.DARK_GREEN),
               border: OutlineInputBorder(
@@ -368,6 +371,7 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
             child: Text(
               'signUpButton'.locale,
               style: TextStyle(
+                fontSize: SizeConfig.getProportionateScreenWidth(13),
                   color: Colors.white,
                   fontFamily: ApplicationConstants.FONT_FAMILY),
             ),
@@ -436,7 +440,7 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
               style: TextStyle(
                   fontFamily: ApplicationConstants.FONT_FAMILY2,
                   color: Color(ApplicationConstants.TEXT_GREY),
-                  fontSize: SizeConfig.getProportionateScreenWidth(13)),
+                  fontSize: SizeConfig.getProportionateScreenWidth(12)),
             ),
             GestureDetector(
               onTap: (){
@@ -448,7 +452,7 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
                 style: TextStyle(
                   fontFamily: ApplicationConstants.FONT_FAMILY2,
                   color: Colors.blue,
-                  fontSize: SizeConfig.getProportionateScreenWidth(13),
+                  fontSize: SizeConfig.getProportionateScreenWidth(12),
                   fontWeight: FontWeight.bold,
                 ),
               ),

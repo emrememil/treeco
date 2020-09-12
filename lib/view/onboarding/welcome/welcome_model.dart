@@ -9,7 +9,7 @@ class WelcomeModel extends BaseModel{
       "title": "Treeco'ya hoş geldin",
       "text": "Treeco daha yeşil bir geleceğe yatırım yapma amacıyla kurulmuş "
           "sosyal girişim platformudur. Kendin için, dünya için, gelecek için",
-      "hashtag": "#BirlikteYeşillendireceğiz",
+      "hashtag": "#BirAğaçDik",
       "imagePath": "assets/animation/welcome3.json"
     },
     {

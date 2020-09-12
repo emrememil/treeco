@@ -28,23 +28,21 @@ class _WelcomeScreenState extends BaseState<WelcomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Column(
-          children: <Widget>[
-            pageView(),
-            SizedBox(height: 10,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                pageViewCount,
-                    (index) => buildDot(index: index),
-              ),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: Column(
+        children: <Widget>[
+          pageView(),
+          SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+              pageViewCount,
+                  (index) => buildDot(index: index),
             ),
-            buttons(),
-          ],
-        ),
+          ),
+          buttons(),
+        ],
       ),
     );
   }
@@ -90,8 +88,10 @@ class _WelcomeScreenState extends BaseState<WelcomeScreen> {
                     child: Text(
                       'letStart'.locale,
                       style: TextStyle(
+                          fontSize: SizeConfig.getProportionateScreenWidth(13),
                           color: Colors.white,
-                          fontFamily: ApplicationConstants.FONT_FAMILY),
+                          fontFamily: ApplicationConstants.FONT_FAMILY,
+                      ),
                     ),
                   ),
                 ),
@@ -112,6 +112,7 @@ class _WelcomeScreenState extends BaseState<WelcomeScreen> {
                       NavigationService.instance.navigateToPage(path: NavigationConstants.SIGN_IN);
                     },
                     child: Text('signIn'.locale, style: TextStyle(
+                        fontSize: SizeConfig.getProportionateScreenWidth(13),
                         color: Colors.black,
                         fontFamily: ApplicationConstants.FONT_FAMILY
                     ),),

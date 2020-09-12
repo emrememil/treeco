@@ -66,7 +66,7 @@ class MainDrawer extends StatelessWidget {
                     style: TextStyle(
                         fontFamily: ApplicationConstants.FONT_FAMILY2,
                         fontWeight: FontWeight.bold,
-                        fontSize: 14,
+                        fontSize: SizeConfig.textMultiplier*2,
                         color: Colors.white),
                   ),
                   Padding(
@@ -76,7 +76,7 @@ class MainDrawer extends StatelessWidget {
                       style: TextStyle(
                           fontFamily: ApplicationConstants.FONT_FAMILY2,
                           color: Colors.white,
-                          fontSize: 12),
+                          fontSize: SizeConfig.textMultiplier*1.8),
                     ),
                   ),
                 ],
@@ -96,15 +96,16 @@ class MainDrawer extends StatelessWidget {
           Icon(
             icon,
             color: Colors.white,
+            size: SizeConfig.getProportionateScreenWidth(25),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 24.0),
+            padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*4),
             child: Text(
               text,
               style: TextStyle(
                   fontFamily: ApplicationConstants.FONT_FAMILY2,
                   //fontWeight: FontWeight.bold,
-                  fontSize: 16,
+                  fontSize: SizeConfig.getProportionateScreenWidth(13),
                   color: Colors.white),
             ),
           )

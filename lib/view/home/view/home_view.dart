@@ -41,22 +41,20 @@ class _HomeScreenState extends BaseState<HomeScreen> {
     );
   }
 
-  get body => SafeArea(
-        child: Scaffold(
-          backgroundColor: Color(ApplicationConstants.BACKGROUND_COLOR),
-          key: _scaffoldKey,
-          appBar: appBar,
-          drawer: MainDrawer(),
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              statisticsContainer,
-              plantOptionsContainer,
-              currentProjectContainer
-            ],
-          ),
-        ),
-      );
+  get body => Scaffold(
+    backgroundColor: Color(ApplicationConstants.BACKGROUND_COLOR),
+    key: _scaffoldKey,
+    appBar: appBar,
+    drawer: MainDrawer(),
+    body: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        statisticsContainer,
+        plantOptionsContainer,
+        currentProjectContainer
+      ],
+    ),
+  );
 
   Expanded get currentProjectContainer {
     return Expanded(
@@ -109,7 +107,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
       child: Text(
         currentProjects[index].title,
         style: TextStyle(
-            fontSize: SizeConfig.textMultiplier*2,
+            fontSize: SizeConfig.getProportionateScreenWidth(13),
             color: Colors.white,
             fontFamily: ApplicationConstants.FONT_FAMILY),
       ),
@@ -118,14 +116,14 @@ class _HomeScreenState extends BaseState<HomeScreen> {
 
   Padding mapImageProjectContainer(int index) {
     return Padding(
-      padding: EdgeInsets.only(left: 16, top:8),
-      child: Image.asset(currentProjects[index].imagePath,width: SizeConfig.imageSizeMultiplier*35,),
+      padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*2, top:SizeConfig.blockSizeVertical*1.2),
+      child: Image.asset(currentProjects[index].imagePath,width: SizeConfig.imageSizeMultiplier*32,fit:BoxFit.fill),
     );
   }
 
   Padding infoProject(int index) {
     return Padding(
-      padding: EdgeInsets.only(left: 32),
+      padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*10),
       child: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,11 +135,11 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                   color: Colors.green.shade900,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 10.0),
+                  padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*2),
                   child: Text(
                     currentProjects[index].woodland,
                     style: TextStyle(
-                        fontSize: SizeConfig.getProportionateScreenWidth(14),
+                        fontSize: SizeConfig.getProportionateScreenWidth(13),
                         color: Colors.black,
                         fontFamily: ApplicationConstants.FONT_FAMILY),
                   ),
@@ -154,11 +152,11 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                 children: <Widget>[
                   Icon(Icons.people, color: Colors.green.shade900),
                   Padding(
-                    padding: EdgeInsets.only(left: 10.0),
+                    padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*2),
                     child: Text(
                       currentProjects[index].population,
                       style: TextStyle(
-                          fontSize: SizeConfig.getProportionateScreenWidth(14),
+                          fontSize: SizeConfig.getProportionateScreenWidth(13),
                           color: Colors.black,
                           fontFamily: ApplicationConstants.FONT_FAMILY),
                     ),
@@ -187,6 +185,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
             'details'.locale,
             style: TextStyle(
                 color: Colors.white,
+                fontSize:SizeConfig.getProportionateScreenWidth(13),
                 fontFamily: ApplicationConstants.FONT_FAMILY),
           ),
         ),
@@ -293,7 +292,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
             height: SizeConfig.getProportionateScreenHeight(65),
             decoration: BoxDecoration(
               color: Color(0xff58B294),
-              borderRadius: BorderRadius.circular(10),
+              //borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.2),
@@ -403,12 +402,11 @@ class _HomeScreenState extends BaseState<HomeScreen> {
   Padding get coinIconActions {
     return Padding(
       padding: EdgeInsets.only(
-        right: SizeConfig.getProportionateScreenWidth(16),
+        right: SizeConfig.blockSizeHorizontal*3,
       ),
       child: Row(
         children: <Widget>[
           Container(
-            width: SizeConfig.getProportionateScreenWidth(65),
             height: SizeConfig.getProportionateScreenHeight(32),
             decoration: BoxDecoration(
                 color: Color(0xff3C7A65),
@@ -416,21 +414,21 @@ class _HomeScreenState extends BaseState<HomeScreen> {
             child: Row(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(left: 8.0),
+                  padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*2),
                   child: ImageIcon(
                     AssetImage('assets/icons/coin.png'), //CustomIcons.coin,
-                    size: SizeConfig.getProportionateScreenHeight(20),
+                    size: SizeConfig.imageSizeMultiplier*4,
                     color: Colors.yellow.shade700,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 8.0),
+                  padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*2,right: SizeConfig.blockSizeHorizontal*2.5),
                   child: Text(
-                    "3",
+                    "35",
                     style: TextStyle(
                       color: Colors.white,
                       fontFamily: ApplicationConstants.FONT_FAMILY,
-                      fontSize: 16,
+                      fontSize: SizeConfig.textMultiplier*2.2,
                     ),
                   ),
                 ),

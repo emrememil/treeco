@@ -33,53 +33,51 @@ class _SignInScreenState extends BaseState<SignInScreen> {
     );
   }
 
-  get body => SafeArea(
-        child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            iconTheme: IconThemeData(color: Colors.black),
-          ),
-          body: Container(
+  get body => Scaffold(
+    resizeToAvoidBottomInset: false,
+    appBar: AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      iconTheme: IconThemeData(color: Colors.black, size: SizeConfig.getProportionateScreenHeight(14)),
+    ),
+    body: Container(
+      child: Column(
+        children: <Widget>[
+          signInTitle(),
+          Form(
+            autovalidate: false,
+            key: formKey,
             child: Column(
               children: <Widget>[
-                signInTitle(),
-                Form(
-                  autovalidate: false,
-                  key: formKey,
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        height: SizeConfig.getProportionateScreenHeight(40),
-                      ),
-                      emailInput(),
-                      SizedBox(
-                        height: SizeConfig.getProportionateScreenHeight(24),
-                      ),
-                      passwordInput(),
-                      SizedBox(
-                        height: SizeConfig.getProportionateScreenHeight(10),
-                      ),
-                    ],
-                  ),
-                ),
-                forgotPassword,
-                signInButton,
                 SizedBox(
-                  height: SizeConfig.getProportionateScreenHeight(30),
+                  height: SizeConfig.getProportionateScreenHeight(40),
                 ),
-                dividerOR,
+                emailInput(),
                 SizedBox(
-                  height: SizeConfig.getProportionateScreenHeight(30),
+                  height: SizeConfig.getProportionateScreenHeight(24),
                 ),
-                socialMediaIconButtons,
-                dontHaveAccount
+                passwordInput(),
+                SizedBox(
+                  height: SizeConfig.getProportionateScreenHeight(10),
+                ),
               ],
             ),
           ),
-        ),
-      );
+          forgotPassword,
+          signInButton,
+          SizedBox(
+            height: SizeConfig.getProportionateScreenHeight(30),
+          ),
+          dividerOR,
+          SizedBox(
+            height: SizeConfig.getProportionateScreenHeight(30),
+          ),
+          socialMediaIconButtons,
+          dontHaveAccount
+        ],
+      ),
+    ),
+  );
 
   Expanded get dontHaveAccount {
     return Expanded(
@@ -98,7 +96,7 @@ class _SignInScreenState extends BaseState<SignInScreen> {
                 style: TextStyle(
                     fontFamily: ApplicationConstants.FONT_FAMILY2,
                     color: Color(ApplicationConstants.TEXT_GREY),
-                    fontSize: SizeConfig.getProportionateScreenWidth(13)),
+                    fontSize: SizeConfig.getProportionateScreenWidth(12)),
               ),
               GestureDetector(
                 onTap: (){
@@ -110,7 +108,7 @@ class _SignInScreenState extends BaseState<SignInScreen> {
                   style: TextStyle(
                     fontFamily: ApplicationConstants.FONT_FAMILY2,
                     color: Colors.blue,
-                    fontSize: SizeConfig.getProportionateScreenWidth(13),
+                    fontSize: SizeConfig.getProportionateScreenWidth(12),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -170,7 +168,7 @@ class _SignInScreenState extends BaseState<SignInScreen> {
 
   Padding get signInButton {
     return Padding(
-      padding: EdgeInsets.only(top: 24.0),
+      padding: EdgeInsets.only(top: SizeConfig.getProportionateScreenHeight(24)),
       child: SizedBox(
         width: double.infinity,
         height: SizeConfig.getProportionateScreenHeight(60),
@@ -185,6 +183,7 @@ class _SignInScreenState extends BaseState<SignInScreen> {
             child: Text(
               'signInButton'.locale,
               style: TextStyle(
+                  fontSize: SizeConfig.getProportionateScreenWidth(13),
                   color: Colors.white,
                   fontFamily: ApplicationConstants.FONT_FAMILY),
             ),
@@ -220,7 +219,7 @@ class _SignInScreenState extends BaseState<SignInScreen> {
                         ? Colors.black
                         : Color(ApplicationConstants.TEXT_GREY),
                     fontFamily: ApplicationConstants.FONT_FAMILY2,
-                    fontSize: SizeConfig.getProportionateScreenWidth(13),
+                    fontSize: SizeConfig.getProportionateScreenWidth(12),
                   ),
                 )
               ],
@@ -234,7 +233,7 @@ class _SignInScreenState extends BaseState<SignInScreen> {
               style: TextStyle(
                   color: Color(ApplicationConstants.TEXT_GREY),
                   fontFamily: ApplicationConstants.FONT_FAMILY2,
-                  fontSize: SizeConfig.getProportionateScreenWidth(13)),
+                  fontSize: SizeConfig.getProportionateScreenWidth(12)),
             ),
           )
         ],
@@ -253,6 +252,7 @@ class _SignInScreenState extends BaseState<SignInScreen> {
                   horizontal: SizeConfig.getProportionateScreenWidth(24),
                   vertical: SizeConfig.getProportionateScreenHeight(18)),
               labelText: 'email'.locale,
+              labelStyle: TextStyle(fontSize: SizeConfig.getProportionateScreenWidth(13)),
               fillColor: Colors.green,
               hoverColor: Color(ApplicationConstants.DARK_GREEN),
               border: OutlineInputBorder(
@@ -306,6 +306,7 @@ class _SignInScreenState extends BaseState<SignInScreen> {
                     horizontal: SizeConfig.getProportionateScreenWidth(24),
                     vertical: SizeConfig.getProportionateScreenHeight(18)),
                 labelText: 'password'.locale,
+                labelStyle: TextStyle(fontSize: SizeConfig.getProportionateScreenWidth(13)),
                 hoverColor: Color(ApplicationConstants.DARK_GREEN),
                 border: OutlineInputBorder(
                   borderRadius: new BorderRadius.circular(35.0),
@@ -351,7 +352,7 @@ class _SignInScreenState extends BaseState<SignInScreen> {
     return Container(
       width: double.infinity,
       child: Padding(
-        padding: const EdgeInsets.only(top: 16.0, left: 20),
+        padding:  EdgeInsets.only(top: SizeConfig.getProportionateScreenHeight(16), left: SizeConfig.getProportionateScreenWidth(20)),
         child: Text(
           'signInButton'.locale,
           style: TextStyle(
