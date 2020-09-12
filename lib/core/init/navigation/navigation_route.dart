@@ -4,8 +4,8 @@ import 'package:treeco/core/constants/navigation/navigation_constants.dart';
 import 'package:treeco/view/onboarding/signin/view/signin_view.dart';
 import 'package:treeco/view/onboarding/signup/view/signup_view.dart';
 import 'package:treeco/view/onboarding/welcome/welcome_view.dart';
-import 'package:treeco/view/profile/view/profile_view.dart';
-import 'package:treeco/view/profile_edit/view/profile_edit_view.dart';
+import 'package:treeco/view/personal/profile/view/profile_view.dart';
+import 'package:treeco/view/personal/profile_edit/view/profile_edit_view.dart';
 import 'package:treeco/view/splash/view/splash_view.dart';
 
 

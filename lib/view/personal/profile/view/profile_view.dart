@@ -9,9 +9,9 @@ import 'package:treeco/core/constants/app/app_constants.dart';
 import 'package:treeco/core/init/navigation/navigation_service.dart';
 import 'package:treeco/view/constants/size_config.dart';
 import 'package:treeco/view/constants/ui_utils.dart';
-import 'package:treeco/view/profile/model/joined_project.dart';
-import 'package:treeco/view/profile/model/profile_model.dart';
-import 'package:treeco/view/profile/view_model/profile_view_model.dart';
+import 'package:treeco/view/personal/profile/model/joined_project.dart';
+import 'package:treeco/view/personal/profile/model/profile_model.dart';
+import 'package:treeco/view/personal/profile/view_model/profile_view_model.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override

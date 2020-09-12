@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:mobx/mobx.dart';
 import 'package:treeco/core/base/model/base_view_model.dart';

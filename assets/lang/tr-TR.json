@@ -48,7 +48,10 @@
     "plantedTree": "Dikili Ağaç",
     "rank": "Sıralama",
     "planted": " Ağaç dikildi!",
-    "heroes": " Kahraman"
+    "heroes": " Kahraman",
+    "changeProfilePhoto": "Profil Fotoğrafını Değiştir",
+    "personalInformationSettings": "Kişisel Bilgiler Ayarları",
+    "switchToProAccount": "Pro Hesaba Geç"
 
 
 }

@@ -411,7 +411,8 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
         IconButton(
           icon: Image.asset(ApplicationConstants.FACEBOOK_ICON),
           iconSize: SizeConfig.getProportionateScreenWidth(48),
-          onPressed: () {},
+          onPressed: () {
+          },
         ),
         IconButton(
           icon: Image.asset(ApplicationConstants.GOOGLE_ICON),
