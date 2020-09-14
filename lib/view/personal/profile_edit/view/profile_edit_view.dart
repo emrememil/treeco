@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:treeco/core/base/view/base_widget.dart';
 import 'package:treeco/core/constants/app/app_constants.dart';
+import 'package:treeco/core/constants/navigation/navigation_constants.dart';
+import 'package:treeco/core/init/navigation/navigation_service.dart';
 import 'package:treeco/view/constants/size_config.dart';
 import 'package:treeco/core/extension/string_extension.dart';
 import 'package:treeco/view/personal/profile_edit/model/profile_edit_model.dart';
@@ -30,29 +32,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
   }
 
   get body => Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          iconTheme: IconThemeData(color: Colors.black, size: SizeConfig.getProportionateScreenWidth(22)),
-          title: Text(
-            'editProfile'.locale,
-            style: TextStyle(
-                fontSize: SizeConfig.getProportionateScreenWidth(14),
-                color: Colors.black,
-                fontFamily: ApplicationConstants.FONT_FAMILY),
-          ),
-          actions: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(right:SizeConfig.getProportionateScreenWidth(2)),
-              child: IconButton(
-                icon: Icon(
-                  Icons.check,
-                  color: Colors.blue,
-                  size: SizeConfig.getProportionateScreenWidth(22),
-                ),
-              ),
-            )
-          ],
-        ),
+        appBar: appBar,
         body: Container(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,6 +76,32 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
         ),
       );
 
+  AppBar get appBar {
+    return AppBar(
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black, size: SizeConfig.getProportionateScreenWidth(22)),
+        title: Text(
+          'editProfile'.locale,
+          style: TextStyle(
+              fontSize: SizeConfig.getProportionateScreenWidth(14),
+              color: Colors.black,
+              fontFamily: ApplicationConstants.FONT_FAMILY),
+        ),
+        actions: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(right:SizeConfig.getProportionateScreenWidth(2)),
+            child: IconButton(
+              icon: Icon(
+                Icons.check,
+                color: Colors.blue,
+                size: SizeConfig.getProportionateScreenWidth(22),
+              ),
+            ),
+          )
+        ],
+      );
+  }
+
   Padding get switchToProAccountText {
     return Padding(
               padding: EdgeInsets.only(
@@ -122,7 +128,9 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                   top: SizeConfig.getProportionateScreenHeight(8),
                   left: SizeConfig.getProportionateScreenWidth(16)),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  NavigationService.instance.navigateToPage(path: NavigationConstants.INFORMATION_SETTINGS);
+                },
                 child: Text(
                   'personalInformationSettings'.locale,
                   style: TextStyle(
@@ -165,7 +173,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
         style: TextStyle(
             fontSize: SizeConfig.getProportionateScreenWidth(13),
             color: Colors.black,
-            fontFamily: ApplicationConstants.FONT_FAMILY),
+            fontFamily: ApplicationConstants.FONT_FAMILY2),
       ),
     );
   }
@@ -184,20 +192,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
         style: TextStyle(
             fontSize: SizeConfig.getProportionateScreenWidth(13),
             color: Colors.black,
-            fontFamily: ApplicationConstants.FONT_FAMILY),
-      ),
-    );
-  }
-
-  Padding get infoText {
-    return Padding(
-      padding: EdgeInsets.all(SizeConfig.getProportionateScreenWidth(8)),
-      child: Text(
-        "Gerçek bir ormana ağaç dikebilmek için kişisel bilgilerini girmelisin. Bu kısımlar herkese açık profilinde görünmeyecek.",
-        style: TextStyle(
-            color: Colors.black,
-            fontSize: SizeConfig.getProportionateScreenWidth(13),
-            fontFamily: ApplicationConstants.FONT_FAMILY),
+            fontFamily: ApplicationConstants.FONT_FAMILY2),
       ),
     );
   }

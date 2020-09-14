@@ -4,6 +4,11 @@ import 'package:treeco/core/constants/navigation/navigation_constants.dart';
 import 'package:treeco/view/onboarding/signin/view/signin_view.dart';
 import 'package:treeco/view/onboarding/signup/view/signup_view.dart';
 import 'package:treeco/view/onboarding/welcome/welcome_view.dart';
+import 'package:treeco/view/personal/birthday_input/view/birthday_input_view.dart';
+import 'package:treeco/view/personal/email_input/view/email_input_view.dart';
+import 'package:treeco/view/personal/gender_input/view/gender_input_view.dart';
+import 'package:treeco/view/personal/personal_information_settings/view/information_settings_view.dart';
+import 'package:treeco/view/personal/phone_number_input/view/phone_input_view.dart';
 import 'package:treeco/view/personal/profile/view/profile_view.dart';
 import 'package:treeco/view/personal/profile_edit/view/profile_edit_view.dart';
 import 'package:treeco/view/splash/view/splash_view.dart';
@@ -29,6 +34,16 @@ class NavigationRoute {
         return normalNavigate(ProfileScreen());
       case NavigationConstants.PROFILE_EDIT:
         return normalNavigate(ProfileEditScreen());
+      case NavigationConstants.INFORMATION_SETTINGS:
+        return normalNavigate(InformationSettingsScreen());
+      case NavigationConstants.EMAIL_INPUT:
+        return normalNavigate(EmailInputScreen());
+      case NavigationConstants.PHONE_NUMBER_INPUT:
+        return normalNavigate(PhoneInputScreen());
+      case NavigationConstants.GENDER_INPUT:
+        return normalNavigate(GenderInputScreen());
+      case NavigationConstants.BIRTHDAY_INPUT:
+        return normalNavigate(BirthdayInputScreen());
       default:
         return MaterialPageRoute(
           builder: (context) => NotFoundNavigationWidget(),

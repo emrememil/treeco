@@ -51,7 +51,18 @@
     "heroes": " Kahraman",
     "changeProfilePhoto": "Profil Fotoğrafını Değiştir",
     "personalInformationSettings": "Kişisel Bilgiler Ayarları",
-    "switchToProAccount": "Pro Hesaba Geç"
+    "switchToProAccount": "Pro Hesaba Geç",
+    "telNo": "Telefon Numarası",
+    "enterAnEmailAddress": "Bir e-posta adresi girin",
+    "enterPhoneNumber": "Bir telefon numarası girin",
+    "enterDateOfBirth": "Doğum tarihinizi giriniz",
+    "specify": "Belirtiniz",
+    "birthday": "Doğum Tarihi",
+    "gender": "Cinsiyet",
+    "eMailAddress": "E-posta Adresi",
+    "personalSettingsInfoText" : "Gerçek bir ormana ağaç dikebilmek için kişisel bilgilerini girmelisin. Bu kısımlar herkese açık profilinde görünmeyecek."
+
+
 
 
 }

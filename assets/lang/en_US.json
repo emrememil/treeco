@@ -51,7 +51,17 @@
     "heroes": " Heroes",
     "changeProfilePhoto": "Change Your Profile Photo",
     "personalInformationSettings": "Personal Information Settings",
-    "switchToProAccount": "Switch To Pro Account"
+    "switchToProAccount": "Switch To Pro Account",
+    "telNo": "Phone Number",
+    "enterAnEmailAddress": "Enter an email address",
+    "enterPhoneNumber": "Enter the phone number",
+    "enterDateOfBirth": "Enter date of birth",
+    "specify": "Specify",
+    "birthday": "Date Of Birth",
+    "gender": "Gender",
+    "eMailAddress": "E-mail Address",
+    "personalSettingsInfoText" : "To plant a tree in a real forest, you must enter your personal details. These parts will not appear on your public profile."
+
 
 
 }
