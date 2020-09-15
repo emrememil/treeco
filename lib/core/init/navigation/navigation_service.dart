@@ -22,6 +22,6 @@ class NavigationService implements INavigationService {
   }
   @override
   Future<void> navigatePop({String path, Object data}) async {
-    await navigatorKey.currentState.pop();
+    await navigatorKey.currentState.pop(data);
   }
 }

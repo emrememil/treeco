@@ -60,7 +60,8 @@
     "birthday": "Date Of Birth",
     "gender": "Gender",
     "eMailAddress": "E-mail Address",
-    "personalSettingsInfoText" : "To plant a tree in a real forest, you must enter your personal details. These parts will not appear on your public profile."
+    "personalSettingsInfoText" : "To plant a tree in a real forest, you must enter your personal details. These parts will not appear on your public profile.",
+    "changeEmail": "Change Email"
 
 
 

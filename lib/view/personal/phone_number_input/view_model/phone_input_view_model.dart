@@ -12,4 +12,11 @@ abstract class _PhoneInputViewModelBase with Store,BaseViewModel{
 
   void init() {}
 
+  @observable
+  bool inputValidated = false;
+  @observable
+  bool errorMesage = false;
+  @observable
+  String phoneNumber;
+
 }

@@ -23,8 +23,6 @@ class _InformationSettingsScreenState extends State<InformationSettingsScreen> {
   InformationSettingsModel informationSettingsModel;
   var formKey = GlobalKey<FormState>();
 
-  String initialCountry = 'TR';
-  PhoneNumber number = PhoneNumber(isoCode: 'TR');
   DateTime _dateTime;
 
   @override
@@ -41,6 +39,7 @@ class _InformationSettingsScreenState extends State<InformationSettingsScreen> {
   }
 
   get body => Scaffold(
+    resizeToAvoidBottomInset: false,
         appBar: appBar,
         body: Container(
           child: Column(
@@ -260,76 +259,5 @@ class _InformationSettingsScreenState extends State<InformationSettingsScreen> {
     );
   }
 
-  Padding get emailTextField {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: SizeConfig.getProportionateScreenWidth(16)),
-      child: Observer(
-        builder: (context) => TextFormField(
-            decoration: InputDecoration(
-              labelText: 'email'.locale,
-              labelStyle: TextStyle(
-                fontSize: SizeConfig.getProportionateScreenWidth(13),
-              ),
-              suffixIcon: (informationSettingsViewModel.emailFocus)
-                  ? Icon(
-                      (informationSettingsViewModel.emailCheck)
-                          ? Icons.check
-                          : Icons.error,
-                      color: (informationSettingsViewModel.emailCheck)
-                          ? Color(ApplicationConstants.TEXT_GREEN)
-                          : Colors.red,
-                    )
-                  : null,
-            ),
-            keyboardType: TextInputType.emailAddress,
-            style: TextStyle(
-                fontSize: SizeConfig.getProportionateScreenWidth(13),
-                color: Colors.black,
-                fontFamily: ApplicationConstants.FONT_FAMILY2),
-            onChanged: (val) {
-              informationSettingsViewModel.emailOnChanged(val);
-            },
-            validator: (value) {
-              if (ApplicationConstants.emailCheck(value)) {
-                return "";
-              } else {
-                return 'invalidEmail'.locale;
-              }
-            }),
-      ),
-    );
-  }
 
-  Padding get telNoTextField {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: SizeConfig.getProportionateScreenWidth(16),
-      ),
-      child: InternationalPhoneNumberInput(
-        onInputChanged: (PhoneNumber number) {
-          print(number.phoneNumber);
-        },
-        onInputValidated: (bool value) {
-          print(value);
-        },
-        selectorConfig: SelectorConfig(
-            showFlags: false, selectorType: PhoneInputSelectorType.DIALOG),
-        ignoreBlank: false,
-        autoValidate: false,
-        selectorTextStyle: TextStyle(color: Colors.black),
-        initialValue: number,
-        //textFieldController: informationSettingsViewModel.controller,
-        inputBorder: OutlineInputBorder(),
-        inputDecoration: InputDecoration.collapsed(
-          hintText: "Telefon numaranı gir",
-          hintStyle: TextStyle(
-              fontSize: SizeConfig.getProportionateScreenWidth(13),
-              color: Colors.black,
-              fontFamily: ApplicationConstants.FONT_FAMILY2),
-          filled: false,
-        ),
-      ),
-    );
-  }
 }

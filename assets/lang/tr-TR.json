@@ -60,7 +60,8 @@
     "birthday": "Doğum Tarihi",
     "gender": "Cinsiyet",
     "eMailAddress": "E-posta Adresi",
-    "personalSettingsInfoText" : "Gerçek bir ormana ağaç dikebilmek için kişisel bilgilerini girmelisin. Bu kısımlar herkese açık profilinde görünmeyecek."
+    "personalSettingsInfoText" : "Gerçek bir ormana ağaç dikebilmek için kişisel bilgilerini girmelisin. Bu kısımlar herkese açık profilinde görünmeyecek.",
+    "changeEmail": "E-postayı Değiştir"
 
 
 
