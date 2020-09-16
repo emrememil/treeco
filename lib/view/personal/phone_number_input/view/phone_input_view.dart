@@ -113,7 +113,7 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
           //textFieldController: informationSettingsViewModel.controller,
           inputBorder: OutlineInputBorder(),
           inputDecoration: InputDecoration.collapsed(
-            hintText: "Telefon numaranı gir",
+            hintText: 'enterPhoneNumber'.locale,
             hintStyle: TextStyle(
                 fontSize: SizeConfig.getProportionateScreenWidth(13),
                 color: Colors.black,

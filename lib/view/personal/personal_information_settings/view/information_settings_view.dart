@@ -23,7 +23,6 @@ class _InformationSettingsScreenState extends State<InformationSettingsScreen> {
   InformationSettingsModel informationSettingsModel;
   var formKey = GlobalKey<FormState>();
 
-  DateTime _dateTime;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,7 @@ class _InformationSettingsScreenState extends State<InformationSettingsScreen> {
       onModelReady: (model) {
         model.setContext(context);
         informationSettingsViewModel = model;
-        _dateTime = DateTime.now();
+
       },
       onPageBuilder: (context, value) => body,
     );
@@ -230,19 +229,6 @@ class _InformationSettingsScreenState extends State<InformationSettingsScreen> {
             color: Colors.black,
             fontFamily: ApplicationConstants.FONT_FAMILY),
       ),
-      actions: <Widget>[
-        Padding(
-          padding:
-              EdgeInsets.only(right: SizeConfig.getProportionateScreenWidth(2)),
-          child: IconButton(
-            icon: Icon(
-              Icons.check,
-              color: Colors.blue,
-              size: SizeConfig.getProportionateScreenWidth(22),
-            ),
-          ),
-        )
-      ],
     );
   }
 

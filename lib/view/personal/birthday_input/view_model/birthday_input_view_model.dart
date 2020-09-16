@@ -12,4 +12,11 @@ abstract class _BirthdayInputViewModelBase with Store,BaseViewModel{
 
   void init() {}
 
+  @observable
+  DateTime dateTime;
+  @observable
+  String birthday;
+  @observable
+  DateTime initData = DateTime(1997,06,12);
+
 }

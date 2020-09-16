@@ -54,15 +54,18 @@
     "switchToProAccount": "Switch To Pro Account",
     "telNo": "Phone Number",
     "enterAnEmailAddress": "Enter an email address",
-    "enterPhoneNumber": "Enter the phone number",
+    "enterPhoneNumber": "Enter your phone number",
     "enterDateOfBirth": "Enter date of birth",
     "specify": "Specify",
     "birthday": "Date Of Birth",
     "gender": "Gender",
     "eMailAddress": "E-mail Address",
     "personalSettingsInfoText" : "To plant a tree in a real forest, you must enter your personal details. These parts will not appear on your public profile.",
-    "changeEmail": "Change Email"
-
-
-
+    "changeEmail": "Change Email",
+    "enterPhoneNumber":  "Enter your phone number",
+    "approve":  "Approve",
+    "woman": "Woman",
+    "male": "Male",
+    "private": "Private",
+    "notIndicate": "I don't want to indicate"
 }

@@ -61,7 +61,13 @@
     "gender": "Cinsiyet",
     "eMailAddress": "E-posta Adresi",
     "personalSettingsInfoText" : "Gerçek bir ormana ağaç dikebilmek için kişisel bilgilerini girmelisin. Bu kısımlar herkese açık profilinde görünmeyecek.",
-    "changeEmail": "E-postayı Değiştir"
+    "changeEmail": "E-postayı Değiştir",
+    "enterPhoneNumber":  "Telefon numaranı gir",
+    "approve":  "Onayla",
+    "woman": "Kadın",
+    "male": "Erkek",
+    "private": "Özel",
+    "notIndicate": "Belirtmek istemiyorum"
 
 
 

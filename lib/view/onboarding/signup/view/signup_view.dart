@@ -23,9 +23,8 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
   SignUpViewModel signUpViewModel;
   SignUpModel signUpModel;
   var formKey = GlobalKey<FormState>();
-  TextEditingController _controller = new TextEditingController();
   bool otomatikKontrol = false;
-  DateTime _dateTime;
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,6 @@ class _SignUpScreenState extends BaseState<SignUpScreen> {
       onModelReady: (model) {
         model.setContext(context);
         signUpViewModel = model;
-        _dateTime = DatePickerConfig.minDateTime;
       },
       onPageBuilder: (context, value) => body,
     );

@@ -12,4 +12,7 @@ abstract class _GenderInputViewModelBase with Store,BaseViewModel{
 
   void init() {}
 
+  @observable
+  String gender="";
+
 }

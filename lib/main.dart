@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
       //builder: DevicePreview.appBuilder, // <--- /!\ Add the builder
       theme: ThemeData(
         primaryColor: Color(ApplicationConstants.DARK_GREEN),
+        accentColor: Color(ApplicationConstants.BACKGROUND_COLOR)
       ),
       debugShowCheckedModeBanner: false,
       title: 'Treeco',
