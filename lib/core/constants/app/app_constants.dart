@@ -17,6 +17,7 @@ class ApplicationConstants {
   static const ANIMATION_DURATION = Duration(milliseconds: 200);
   static final DATE_FORMAT = DateFormat('dd-MM-yyyy');
 
+
   static const EMAIL_REGIEX = r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}\$";
 
   static bool emailCheck(String email){

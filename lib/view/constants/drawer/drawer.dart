@@ -66,7 +66,7 @@ class MainDrawer extends StatelessWidget {
                     style: TextStyle(
                         fontFamily: ApplicationConstants.FONT_FAMILY2,
                         fontWeight: FontWeight.bold,
-                        fontSize: SizeConfig.textMultiplier*2,
+                        fontSize: SizeConfig.getProportionateScreenWidth(14),
                         color: Colors.white),
                   ),
                   Padding(
@@ -76,7 +76,7 @@ class MainDrawer extends StatelessWidget {
                       style: TextStyle(
                           fontFamily: ApplicationConstants.FONT_FAMILY2,
                           color: Colors.white,
-                          fontSize: SizeConfig.textMultiplier*1.8),
+                          fontSize: SizeConfig.getProportionateScreenWidth(12)),
                     ),
                   ),
                 ],

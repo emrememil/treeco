@@ -9,6 +9,7 @@ import 'package:treeco/view/constants/size_config.dart';
 import 'package:treeco/core/extension/string_extension.dart';
 import 'package:treeco/view/personal/birthday_input/model/birthday_input_model.dart';
 import 'package:treeco/view/personal/birthday_input/view_model/birthday_input_view_model.dart';
+import 'package:date_format/date_format.dart';
 
 class BirthdayInputScreen extends StatefulWidget {
   @override
@@ -53,15 +54,16 @@ class _BirthdayInputScreenState extends State<BirthdayInputScreen> {
                       child: Align(
                         alignment: Alignment.center,
                         child: Observer(
-                          builder: (context) => Text(
-                            ApplicationConstants.DATE_FORMAT
-                                .format(birthdayInputViewModel.dateTime),
+                          builder: (context) => (birthdayInputViewModel.dateTime!=null) ? Text(
+                            //ApplicationConstants.DATE_FORMAT.format(birthdayInputViewModel.dateTime),
+                            //birthdayInputViewModel.dateTime.toString(),
+                            formatDate(birthdayInputViewModel.dateTime, [dd, '-', mm, '-', yyyy]),
                             style: TextStyle(
                                 fontSize:
                                     SizeConfig.getProportionateScreenWidth(13),
                                 color: Colors.black,
                                 fontFamily: ApplicationConstants.FONT_FAMILY),
-                          ),
+                          ) : Text("12-06-1997"),
                         ),
                       ),
                     ),
@@ -123,7 +125,7 @@ class _BirthdayInputScreenState extends State<BirthdayInputScreen> {
         ),
         minDateTime: DatePickerConfig.minDateTime,
         maxDateTime: DatePickerConfig.maxDateTime,
-        initialDateTime: DatePickerConfig.initData,
+        initialDateTime: birthdayInputViewModel.dateTime,
         dateFormat: DatePickerConfig.dateFormat,
         locale: DatePickerConfig.locale,
         onClose: () => print("----- onClose -----"),
@@ -138,13 +140,13 @@ class _BirthdayInputScreenState extends State<BirthdayInputScreen> {
         onConfirm: (dateTime, List<int> index) {
           birthdayInputViewModel.dateTime = dateTime;
           print("Datetime2: " +
-              birthdayInputViewModel.dateTime.toUtc().toString());
+              formatDate(birthdayInputViewModel.dateTime, [dd, '-', mm, '-', yyyy]));
         });
   }
 
   checkAndConfirm() {
     debugPrint(
-        "girilen tarih: ${ApplicationConstants.DATE_FORMAT.format(birthdayInputViewModel.dateTime)}");
+        "girilen tarih: ${formatDate(birthdayInputViewModel.dateTime, [dd, '-', mm, '-', yyyy])}");
     NavigationService.instance.navigatePop();
   }
 }

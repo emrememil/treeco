@@ -243,7 +243,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                                 color: Colors.white,
                                 fontFamily: ApplicationConstants.FONT_FAMILY2,
                                 fontSize:
-                                    SizeConfig.textMultiplier*2.3,
+                                SizeConfig.getProportionateScreenWidth(15),
                               ),
                             ),
                           ),
@@ -321,7 +321,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                             'myRank'.locale,
                             style: TextStyle(
                               fontSize:
-                                  SizeConfig.textMultiplier*2,
+                              SizeConfig.getProportionateScreenWidth(14),
                               color: Colors.white,
                               fontFamily: ApplicationConstants.FONT_FAMILY,
                             ),
@@ -333,7 +333,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                             "112.765",
                             style: TextStyle(
                               fontSize:
-                              SizeConfig.textMultiplier*2,
+                              SizeConfig.getProportionateScreenWidth(14),
                               color: Color(0xff2EE574),
                               fontFamily: ApplicationConstants.FONT_FAMILY,
                             ),
@@ -366,7 +366,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                             "412",
                             style: TextStyle(
                               fontSize:
-                                  SizeConfig.textMultiplier*2,
+                              SizeConfig.getProportionateScreenWidth(14),
                               color: Color(ApplicationConstants.LIGHT_GREEN),
                               fontFamily: ApplicationConstants.FONT_FAMILY,
                             ),
@@ -391,7 +391,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
       child: Text(
         'statistics'.locale,
         style: TextStyle(
-          fontSize: SizeConfig.textMultiplier*2,
+          fontSize: SizeConfig.getProportionateScreenWidth(14),
           color: Colors.white,
           fontFamily: ApplicationConstants.FONT_FAMILY,
         ),
@@ -428,7 +428,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                     style: TextStyle(
                       color: Colors.white,
                       fontFamily: ApplicationConstants.FONT_FAMILY,
-                      fontSize: SizeConfig.textMultiplier*2.2,
+                      fontSize: SizeConfig.getProportionateScreenWidth(15),
                     ),
                   ),
                 ),
@@ -449,7 +449,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
       child: Text(
         'plantATreeToday'.locale,
         style: TextStyle(
-          fontSize: SizeConfig.textMultiplier*2,
+          fontSize: SizeConfig.getProportionateScreenWidth(14),
           color: Colors.white,
           fontFamily: ApplicationConstants.FONT_FAMILY,
         ),
@@ -464,7 +464,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
       child: Text(
         'currentProjects'.locale,
         style: TextStyle(
-          fontSize: SizeConfig.textMultiplier*2,
+          fontSize: SizeConfig.getProportionateScreenWidth(14),
           color: Colors.white,
           fontFamily: ApplicationConstants.FONT_FAMILY,
         ),
