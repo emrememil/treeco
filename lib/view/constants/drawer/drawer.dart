@@ -18,9 +18,9 @@ class MainDrawer extends StatelessWidget {
           child: ListView(
             children: <Widget>[
               drawerHeader,
-              _createDrawerItem(icon: Icons.timeline, text: 'timeLine'.locale),
+              _createDrawerItem(icon: Icons.timeline, text: 'timeLine'.locale,onTap: () => NavigationService.instance.navigateToPage(path: NavigationConstants.TIMELINE)),
               _createDrawerItem(icon: MdiIcons.pineTree, text: 'forest'.locale),
-              _createDrawerItem(icon: Icons.people, text: 'friends'.locale),
+              _createDrawerItem(icon: Icons.people, text: 'friends'.locale,onTap: () => NavigationService.instance.navigateToPage(path: NavigationConstants.FRIENDS)),
               _createDrawerItem(icon: Icons.done, text: 'achievements'.locale),
               _createDrawerItem(icon: MdiIcons.treeOutline, text: 'realForest'.locale),
               _createDrawerItem(icon: Icons.store, text: 'store'.locale),

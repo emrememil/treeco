@@ -7,6 +7,8 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:treeco/core/base/state/base_state.dart';
 import 'package:treeco/core/base/view/base_widget.dart';
 import 'package:treeco/core/constants/app/app_constants.dart';
+import 'package:treeco/core/constants/navigation/navigation_constants.dart';
+import 'package:treeco/core/init/navigation/navigation_service.dart';
 import 'package:treeco/view/constants/custom_icons.dart';
 import 'package:treeco/view/constants/drawer/drawer.dart';
 import 'package:treeco/view/constants/size_config.dart';
@@ -307,39 +309,42 @@ class _HomeScreenState extends BaseState<HomeScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Container(
-                    height: SizeConfig.getProportionateScreenHeight(40),
-                    decoration: BoxDecoration(
-                      color: Color(0xff11806F),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal:8.0),
-                          child: Text(
-                            'myRank'.locale,
-                            style: TextStyle(
-                              fontSize:
-                              SizeConfig.getProportionateScreenWidth(14),
-                              color: Colors.white,
-                              fontFamily: ApplicationConstants.FONT_FAMILY,
+                  GestureDetector(
+                    onTap: () => NavigationService.instance.navigateToPage(path: NavigationConstants.LEADER_BOARD),
+                    child: Container(
+                      height: SizeConfig.getProportionateScreenHeight(40),
+                      decoration: BoxDecoration(
+                        color: Color(0xff11806F),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal:8.0),
+                            child: Text(
+                              'myRank'.locale,
+                              style: TextStyle(
+                                fontSize:
+                                SizeConfig.getProportionateScreenWidth(14),
+                                color: Colors.white,
+                                fontFamily: ApplicationConstants.FONT_FAMILY,
+                              ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal:8.0),
-                          child: Text(
-                            "112.765",
-                            style: TextStyle(
-                              fontSize:
-                              SizeConfig.getProportionateScreenWidth(14),
-                              color: Color(0xff2EE574),
-                              fontFamily: ApplicationConstants.FONT_FAMILY,
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal:8.0),
+                            child: Text(
+                              "112.765",
+                              style: TextStyle(
+                                fontSize:
+                                SizeConfig.getProportionateScreenWidth(14),
+                                color: Color(0xff2EE574),
+                                fontFamily: ApplicationConstants.FONT_FAMILY,
+                              ),
                             ),
-                          ),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   Container(

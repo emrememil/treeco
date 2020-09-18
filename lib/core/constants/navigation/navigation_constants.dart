@@ -10,4 +10,7 @@ class NavigationConstants {
   static const PHONE_NUMBER_INPUT = "/phoneNumberInput";
   static const GENDER_INPUT = "/genderInput";
   static const BIRTHDAY_INPUT = "/birthdayInput";
+  static const TIMELINE = "/timeline";
+  static const LEADER_BOARD = "/leaderBoard";
+  static const FRIENDS = "/friends";
 }

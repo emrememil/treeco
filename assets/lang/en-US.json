@@ -67,7 +67,11 @@
     "woman": "Woman",
     "male": "Male",
     "private": "Private",
-    "notIndicate": "I don't want to indicate"
+    "notIndicate": "I don't want to indicate",
+    "familiarHeroes": "Familiar Heroes",
+    "leaderboard": "Leaderboard",
+    "allHeroes": "All Heroes"
+
 
 
 }
