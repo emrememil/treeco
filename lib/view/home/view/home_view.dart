@@ -44,19 +44,19 @@ class _HomeScreenState extends BaseState<HomeScreen> {
   }
 
   get body => Scaffold(
-    backgroundColor: Color(ApplicationConstants.BACKGROUND_COLOR),
-    key: _scaffoldKey,
-    appBar: appBar,
-    drawer: MainDrawer(),
-    body: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        statisticsContainer,
-        plantOptionsContainer,
-        currentProjectContainer
-      ],
-    ),
-  );
+        backgroundColor: Color(ApplicationConstants.BACKGROUND_COLOR),
+        key: _scaffoldKey,
+        appBar: appBar,
+        drawer: MainDrawer(),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            statisticsContainer,
+            plantOptionsContainer,
+            currentProjectContainer
+          ],
+        ),
+      );
 
   Expanded get currentProjectContainer {
     return Expanded(
@@ -118,14 +118,17 @@ class _HomeScreenState extends BaseState<HomeScreen> {
 
   Padding mapImageProjectContainer(int index) {
     return Padding(
-      padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*2, top:SizeConfig.blockSizeVertical*1.2),
-      child: Image.asset(currentProjects[index].imagePath,width: SizeConfig.imageSizeMultiplier*32,fit:BoxFit.fill),
+      padding: EdgeInsets.only(
+          left: SizeConfig.blockSizeHorizontal * 2,
+          top: SizeConfig.blockSizeVertical * 1.2),
+      child: Image.asset(currentProjects[index].imagePath,
+          width: SizeConfig.imageSizeMultiplier * 32, fit: BoxFit.fill),
     );
   }
 
   Padding infoProject(int index) {
     return Padding(
-      padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*10),
+      padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 10),
       child: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,7 +140,8 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                   color: Colors.green.shade900,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*2),
+                  padding:
+                      EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 2),
                   child: Text(
                     currentProjects[index].woodland,
                     style: TextStyle(
@@ -149,12 +153,14 @@ class _HomeScreenState extends BaseState<HomeScreen> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(top: SizeConfig.getProportionateScreenHeight(8)),
+              padding: EdgeInsets.only(
+                  top: SizeConfig.getProportionateScreenHeight(8)),
               child: Row(
                 children: <Widget>[
                   Icon(Icons.people, color: Colors.green.shade900),
                   Padding(
-                    padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*2),
+                    padding: EdgeInsets.only(
+                        left: SizeConfig.blockSizeHorizontal * 2),
                     child: Text(
                       currentProjects[index].population,
                       style: TextStyle(
@@ -175,7 +181,8 @@ class _HomeScreenState extends BaseState<HomeScreen> {
 
   Padding get buttonDetailProject {
     return Padding(
-      padding: EdgeInsets.only(top: SizeConfig.getProportionateScreenHeight(16)),
+      padding:
+          EdgeInsets.only(top: SizeConfig.getProportionateScreenHeight(16)),
       child: Container(
         height: SizeConfig.getProportionateScreenHeight(30),
         child: RaisedButton(
@@ -187,7 +194,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
             'details'.locale,
             style: TextStyle(
                 color: Colors.white,
-                fontSize:SizeConfig.getProportionateScreenWidth(13),
+                fontSize: SizeConfig.getProportionateScreenWidth(13),
                 fontFamily: ApplicationConstants.FONT_FAMILY),
           ),
         ),
@@ -231,10 +238,10 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                     return Row(
                       children: <Widget>[
                         Padding(
-                          padding:  EdgeInsets.only(left:16.0,right: 8),
+                          padding: EdgeInsets.only(left: 16.0, right: 8),
                           child: Lottie.asset(plantOptions[index].imagePath,
                               fit: BoxFit.fill,
-                              width: SizeConfig.imageSizeMultiplier*25),
+                              width: SizeConfig.imageSizeMultiplier * 25),
                         ),
                         Expanded(
                           child: Padding(
@@ -245,7 +252,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                                 color: Colors.white,
                                 fontFamily: ApplicationConstants.FONT_FAMILY2,
                                 fontSize:
-                                SizeConfig.getProportionateScreenWidth(15),
+                                    SizeConfig.getProportionateScreenWidth(15),
                               ),
                             ),
                           ),
@@ -310,9 +317,10 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   GestureDetector(
-                    onTap: () => NavigationService.instance.navigateToPage(path: NavigationConstants.LEADER_BOARD),
+                    onTap: () => NavigationService.instance
+                        .navigateToPage(path: NavigationConstants.LEADER_BOARD),
                     child: Container(
-                      height: SizeConfig.getProportionateScreenHeight(40),
+                      height: SizeConfig.getProportionateScreenHeight(35),
                       decoration: BoxDecoration(
                         color: Color(0xff11806F),
                         borderRadius: BorderRadius.circular(20),
@@ -320,24 +328,26 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                       child: Row(
                         children: <Widget>[
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal:8.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
                             child: Text(
                               'myRank'.locale,
                               style: TextStyle(
                                 fontSize:
-                                SizeConfig.getProportionateScreenWidth(14),
+                                    SizeConfig.getProportionateScreenWidth(14),
                                 color: Colors.white,
                                 fontFamily: ApplicationConstants.FONT_FAMILY,
                               ),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal:8.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
                             child: Text(
                               "112.765",
                               style: TextStyle(
                                 fontSize:
-                                SizeConfig.getProportionateScreenWidth(14),
+                                    SizeConfig.getProportionateScreenWidth(14),
                                 color: Color(0xff2EE574),
                                 fontFamily: ApplicationConstants.FONT_FAMILY,
                               ),
@@ -348,7 +358,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                     ),
                   ),
                   Container(
-                    height: SizeConfig.getProportionateScreenHeight(40),
+                    height: SizeConfig.getProportionateScreenHeight(32),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
@@ -358,20 +368,21 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                       children: <Widget>[
                         //Icon(MdiIcons.pineTree, color: Colors.green,)
                         Padding(
-                          padding: const EdgeInsets.only(right:8.0,left:12),
-                          child: Image.asset(
-                            'assets/icons/tree.png',
-                            width: SizeConfig.imageSizeMultiplier*4.5,
-                            height: SizeConfig.imageSizeMultiplier*4.5,
+                          padding: const EdgeInsets.only(right: 4.0, left: 8),
+                          child: Icon(
+                            MdiIcons.pineTree,
+                            color:
+                                Color(ApplicationConstants.BACKGROUND_COLOR),
+                            size: SizeConfig.getProportionateScreenWidth(22),
                           ),
                         ),
                         Padding(
-                          padding:  EdgeInsets.only(right:12.0),
+                          padding: EdgeInsets.only(right: 12.0),
                           child: Text(
                             "412",
                             style: TextStyle(
                               fontSize:
-                              SizeConfig.getProportionateScreenWidth(14),
+                                  SizeConfig.getProportionateScreenWidth(14),
                               color: Color(ApplicationConstants.LIGHT_GREEN),
                               fontFamily: ApplicationConstants.FONT_FAMILY,
                             ),
@@ -392,7 +403,9 @@ class _HomeScreenState extends BaseState<HomeScreen> {
   Padding get statisticsText {
     return Padding(
       padding: EdgeInsets.only(
-          left: SizeConfig.getProportionateScreenWidth(8), top: SizeConfig.getProportionateScreenHeight(10), bottom: 5),
+          left: SizeConfig.getProportionateScreenWidth(8),
+          top: SizeConfig.getProportionateScreenHeight(10),
+          bottom: 5),
       child: Text(
         'statistics'.locale,
         style: TextStyle(
@@ -407,7 +420,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
   Padding get coinIconActions {
     return Padding(
       padding: EdgeInsets.only(
-        right: SizeConfig.blockSizeHorizontal*3,
+        right: SizeConfig.blockSizeHorizontal * 3,
       ),
       child: Row(
         children: <Widget>[
@@ -419,15 +432,17 @@ class _HomeScreenState extends BaseState<HomeScreen> {
             child: Row(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*2),
-                  child: ImageIcon(
-                    AssetImage('assets/icons/coin.png'), //CustomIcons.coin,
-                    size: SizeConfig.imageSizeMultiplier*4,
-                    color: Colors.yellow.shade700,
-                  ),
-                ),
+                    padding: EdgeInsets.only(
+                        left: SizeConfig.blockSizeHorizontal * 2),
+                    child: Icon(
+                      CustomIcons.coin,
+                      color: Color(0xffF6C358),
+                      size: SizeConfig.getProportionateScreenWidth(20),
+                    )),
                 Padding(
-                  padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*2,right: SizeConfig.blockSizeHorizontal*2.5),
+                  padding: EdgeInsets.only(
+                      left: SizeConfig.blockSizeHorizontal * 2,
+                      right: SizeConfig.blockSizeHorizontal * 2.5),
                   child: Text(
                     "35",
                     style: TextStyle(

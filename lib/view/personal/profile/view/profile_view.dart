@@ -7,6 +7,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:treeco/core/base/view/base_widget.dart';
 import 'package:treeco/core/constants/app/app_constants.dart';
 import 'package:treeco/core/init/navigation/navigation_service.dart';
+import 'package:treeco/view/constants/custom_icons.dart';
 import 'package:treeco/view/constants/size_config.dart';
 import 'package:treeco/view/constants/ui_utils.dart';
 import 'package:treeco/view/personal/profile/model/joined_project.dart';
@@ -305,11 +306,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         Row(
           children: <Widget>[
-            ImageIcon(
-              AssetImage('assets/icons/coin.png'), //CustomIcons.coin,
-              size: SizeConfig.getProportionateScreenHeight(20),
-              color: Colors.yellow.shade700,
-            ),
+            Icon(CustomIcons.coin,color: Color(0xffF6C358),size: SizeConfig.getProportionateScreenWidth(18),),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(

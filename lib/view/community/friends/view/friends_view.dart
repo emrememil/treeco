@@ -5,6 +5,7 @@ import 'package:treeco/core/constants/app/app_constants.dart';
 import 'package:treeco/core/extension/string_extension.dart';
 import 'package:treeco/view/community/friends/model/friends_model.dart';
 import 'package:treeco/view/community/friends/view_model/friends_view_model.dart';
+import 'package:treeco/view/constants/custom_icons.dart';
 import 'package:treeco/view/constants/size_config.dart';
 
 class FriendsScreen extends StatefulWidget {
@@ -40,6 +41,7 @@ class _FriendsScreenState extends State<FriendsScreen> {
                     return Card(
                       child: ListTile(
                         leading: CircleAvatar(
+                          radius: SizeConfig.getProportionateScreenWidth(20),
                           backgroundImage: AssetImage(
                               friendsViewModel.allFriend[index].profilePicture),
                         ),
@@ -68,11 +70,7 @@ class _FriendsScreenState extends State<FriendsScreen> {
                               ),
                               Padding(
                                 padding: EdgeInsets.only(left:SizeConfig.getProportionateScreenWidth(8),),
-                                child: ImageIcon(
-                                  AssetImage('assets/icons/coin.png'), //CustomIcons.coin,
-                                  size: SizeConfig.getProportionateScreenHeight(20),
-                                  color: Colors.yellow.shade700,
-                                ),
+                                child: Icon(CustomIcons.coin,color: Color(0xffF6C358),size: SizeConfig.getProportionateScreenWidth(16),)
                               ),
                               Padding(
                                 padding: EdgeInsets.only(left:SizeConfig.getProportionateScreenWidth(4),),

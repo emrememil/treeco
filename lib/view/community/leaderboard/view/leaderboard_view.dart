@@ -5,6 +5,7 @@ import 'package:treeco/core/constants/app/app_constants.dart';
 import 'package:treeco/core/extension/string_extension.dart';
 import 'package:treeco/view/community/leaderboard/model/leaderboard_model.dart';
 import 'package:treeco/view/community/leaderboard/view_model/leaderboard_view_model.dart';
+import 'package:treeco/view/constants/custom_icons.dart';
 import 'package:treeco/view/constants/size_config.dart';
 
 class LeaderBoardScreen extends StatefulWidget {
@@ -122,11 +123,7 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
                 padding: EdgeInsets.only(
                   left: SizeConfig.getProportionateScreenWidth(8),
                 ),
-                child: ImageIcon(
-                  AssetImage('assets/icons/coin.png'), //CustomIcons.coin,
-                  size: SizeConfig.getProportionateScreenHeight(20),
-                  color: Colors.yellow.shade700,
-                ),
+                child: Icon(CustomIcons.coin,color: Color(0xffF6C358),size: SizeConfig.getProportionateScreenWidth(16),)
               ),
               Padding(
                 padding: EdgeInsets.only(
@@ -206,11 +203,7 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
                 padding: EdgeInsets.only(
                   left: SizeConfig.getProportionateScreenWidth(8),
                 ),
-                child: ImageIcon(
-                  AssetImage('assets/icons/coin.png'), //CustomIcons.coin,
-                  size: SizeConfig.getProportionateScreenHeight(20),
-                  color: Colors.yellow.shade700,
-                ),
+                child:Icon(CustomIcons.coin,color: Color(0xffF6C358),size: SizeConfig.getProportionateScreenWidth(16),)
               ),
               Padding(
                 padding: EdgeInsets.only(
