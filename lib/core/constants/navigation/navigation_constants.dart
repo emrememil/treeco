@@ -13,4 +13,5 @@ class NavigationConstants {
   static const TIMELINE = "/timeline";
   static const LEADER_BOARD = "/leaderBoard";
   static const FRIENDS = "/friends";
+  static const FOREST = "/forest";
 }
