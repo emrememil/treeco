@@ -70,5 +70,10 @@
     "notIndicate": "I don't want to indicate",
     "familiarHeroes": "Familiar Heroes",
     "leaderboard": "Leaderboard",
-    "allHeroes": "All Heroes"
+    "allHeroes": "All Heroes",
+    "treePlantingSituation": "Tree Planting Situation",
+    "lastWeekChart": "(Last 1 Week Chart)",
+    "turnItIntoRealTree": "Turn It Into A Real Tree",
+    "numberOfTreeVirtualForest": "Number of Trees in Virtual Forest"
+
 }
