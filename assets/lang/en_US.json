@@ -74,6 +74,12 @@
     "treePlantingSituation": "Tree Planting Situation",
     "lastWeekChart": "(Last 1 Week Chart)",
     "turnItIntoRealTree": "Turn It Into A Real Tree",
-    "numberOfTreeVirtualForest": "Number of Trees in Virtual Forest"
+    "numberOfTreeVirtualForest": "Number of Trees in Virtual Forest",
+    "plantRealTree": "Plant a real tree",
+    "plantRealTreeProAccount": "You can plant a real tree by switching to Pro Account",
+    "loginAppEveryDay": "Plant new trees by login in to the app every day",
+    "byYou": "by you",
+    "byYourFriends": "by your friends",
+    "byEveryone": "by everyone"
 
 }

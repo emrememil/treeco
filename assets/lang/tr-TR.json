@@ -74,7 +74,13 @@
     "treePlantingSituation": "Ağaç Dikme Durumu",
     "lastWeekChart": "(Son 1 Haftalık Grafik)",
     "turnItIntoRealTree": "Gerçek Bir Ağaca Dönüştür",
-    "numberOfTreeVirtualForest": "Sanal Ormanındaki Ağaç Sayısı"
+    "numberOfTreeVirtualForest": "Sanal Ormanındaki Ağaç Sayısı",
+    "plantRealTree": "Gerçek bir ağaç dik",
+    "plantRealTreeProAccount": "Pro Hesaba geçerek gerçek bir ağaç dikebilirsin",
+    "loginAppEveryDay": "Uygulamaya her gün giriş yaparak yeni ağaçlar dik",
+    "byYou": "senin tarafından",
+    "byYourFriends": "arkadaşların tarafından",
+    "byEveryone": "herkes tarafından"
 
 
 

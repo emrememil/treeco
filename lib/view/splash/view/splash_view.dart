@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:treeco/core/constants/app/app_constants.dart';
 import 'package:treeco/core/constants/navigation/navigation_constants.dart';
 import 'package:treeco/core/init/navigation/navigation_service.dart';
+import 'package:treeco/view/achievements/view/achievements_view.dart';
 import 'package:treeco/view/constants/size_config.dart';
 import 'package:treeco/view/home/view/home_view.dart';
 import 'package:treeco/view/onboarding/welcome/welcome_view.dart';
@@ -22,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     _checkForSession().then((status) {
       if (status) {
-        splashNavigator(HomeScreen());
+        splashNavigator(AchievementsScreen());
       }
       else{
         // ---TO DO---: NAVIGATE TO HOME PAGE!

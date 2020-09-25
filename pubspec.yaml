@@ -44,6 +44,7 @@ dependencies:
   device_preview: ^0.4.8
   date_format: ^1.0.9
   fl_chart: ^0.11.1
+  flutter_circular_chart: ^0.1.0
 
 
 dev_dependencies:
@@ -67,6 +68,7 @@ flutter:
     - assets/images/
     - assets/animation/
     - assets/icons/
+    - assets/icons/achievements/
     - assets/backgrounds/
 
   # An image asset can refer to one or more resolution-specific "variants", see

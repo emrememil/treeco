@@ -12,4 +12,12 @@ abstract class _RealForestViewModelBase with Store,BaseViewModel{
 
   void init() {}
 
+  @observable
+  int byYou=0;
+  @observable
+  int byYourFriends=0;
+  @observable
+  int byEveryone=0;
+
+
 }

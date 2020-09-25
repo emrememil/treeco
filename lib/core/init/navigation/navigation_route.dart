@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:treeco/core/components/card/not_found_navigation_widget.dart';
 import 'package:treeco/core/constants/navigation/navigation_constants.dart';
+import 'package:treeco/view/achievements/view/achievements_view.dart';
 import 'package:treeco/view/community/friends/view/friends_view.dart';
 import 'package:treeco/view/community/leaderboard/view/leaderboard_view.dart';
 import 'package:treeco/view/community/timeline/view/timeline_view.dart';
 import 'package:treeco/view/forests/forest/view/forest_view.dart';
+import 'package:treeco/view/forests/real_forest/view/real_forest_view.dart';
 import 'package:treeco/view/onboarding/signin/view/signin_view.dart';
 import 'package:treeco/view/onboarding/signup/view/signup_view.dart';
 import 'package:treeco/view/onboarding/welcome/welcome_view.dart';
@@ -56,6 +58,10 @@ class NavigationRoute {
         return normalNavigate(LeaderBoardScreen());
       case NavigationConstants.FOREST:
         return normalNavigate(ForestScreen());
+      case NavigationConstants.REAL_FOREST:
+        return normalNavigate(RealForestScreen());
+      case NavigationConstants.ACHIEVEMENTS:
+        return normalNavigate(AchievementsScreen());
       default:
         return MaterialPageRoute(
           builder: (context) => NotFoundNavigationWidget(),

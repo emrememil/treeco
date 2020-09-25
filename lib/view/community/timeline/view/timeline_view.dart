@@ -33,7 +33,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
 
   get body => Scaffold(
       appBar: appBar,
-      backgroundColor: Color(0xff0B806E),
+      backgroundColor: Color(ApplicationConstants.BACKGROUND_COLOR),//Color(0xff0B806E),
       body: Column(
         children: <Widget>[
           SizedBox(height: 8,),
@@ -46,11 +46,11 @@ class _TimelineScreenState extends State<TimelineScreen> {
                     vertical: SizeConfig.getProportionateScreenHeight(4)),
                     child: Card(
                       shape: RoundedRectangleBorder(
-                          side: BorderSide(color: Colors.white70, width: 0.5),
+                          side: BorderSide(color: Colors.white70, width: 0.1),
                         borderRadius: BorderRadius.circular(15)
                       ),
                       elevation: 4,
-                      color: Color(0xff3D9886),
+                      color: Color(0xff0B806E),
                       child: ListTile(
                         leading: CircleAvatar(radius: SizeConfig.getProportionateScreenWidth(25),
                           backgroundImage: AssetImage(
@@ -112,7 +112,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
 
   AppBar get appBar {
     return AppBar(
-      backgroundColor: Color(0xff0B806E),
+      backgroundColor: Color(ApplicationConstants.BACKGROUND_COLOR),//Color(0xff0B806E),
       elevation: 4,
       iconTheme: IconThemeData(color: Colors.white),
       title: Text(
