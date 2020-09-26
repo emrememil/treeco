@@ -12,6 +12,7 @@ import 'package:treeco/core/init/navigation/navigation_service.dart';
 import 'package:treeco/view/constants/custom_icons.dart';
 import 'package:treeco/view/constants/drawer/drawer.dart';
 import 'package:treeco/view/constants/size_config.dart';
+import 'package:treeco/view/dialogs/login_days.dart';
 import 'package:treeco/view/home/model/current_project_data.dart';
 import 'package:treeco/view/home/model/home_model.dart';
 import 'package:treeco/view/home/model/plant_options_data.dart';
@@ -38,6 +39,9 @@ class _HomeScreenState extends BaseState<HomeScreen> {
       onModelReady: (model) {
         model.setContext(context);
         homeViewModel = model;
+        WidgetsBinding.instance.addPostFrameCallback((timeStamp) => showDialog(
+            context: context,
+            builder: (context) => CustomOpeningAppDialog(5, 50)));
       },
       onPageBuilder: (context, value) => body,
     );
@@ -371,8 +375,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                           padding: const EdgeInsets.only(right: 4.0, left: 8),
                           child: Icon(
                             MdiIcons.pineTree,
-                            color:
-                                Color(ApplicationConstants.BACKGROUND_COLOR),
+                            color: Color(ApplicationConstants.BACKGROUND_COLOR),
                             size: SizeConfig.getProportionateScreenWidth(22),
                           ),
                         ),
@@ -491,4 +494,6 @@ class _HomeScreenState extends BaseState<HomeScreen> {
       ),
     );
   }
+
 }
+

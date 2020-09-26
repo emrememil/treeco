@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     _checkForSession().then((status) {
       if (status) {
-        splashNavigator(AchievementsScreen());
+        splashNavigator(HomeScreen());
       }
       else{
         // ---TO DO---: NAVIGATE TO HOME PAGE!

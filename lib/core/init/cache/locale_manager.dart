@@ -1,4 +1,3 @@
-
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:treeco/core/constants/enums/locale_keys_enum.dart';
 

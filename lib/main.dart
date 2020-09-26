@@ -11,10 +11,12 @@ import 'package:treeco/view/constants/size_config.dart';
 import 'package:treeco/view/home/view/home_view.dart';
 import 'package:treeco/view/splash/view/splash_view.dart';
 
+import 'core/init/cache/locale_manager.dart';
 import 'core/init/notifier/provider_list.dart';
 
 void main() {
-  //LocaleManager.prefrencesInit();
+  WidgetsFlutterBinding.ensureInitialized();
+  LocaleManager.prefrencesInit();
   runApp(MultiProvider(
     providers: [...ApplicationProvider.instance.dependItems],
     child: EasyLocalization(
