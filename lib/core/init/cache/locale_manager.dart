@@ -25,4 +25,11 @@ class LocaleManager {
 
   String getStringValue(PreferencesKeys key) =>
       _preferences.getString(key.toString()) ?? "";
+
+  Future<void> setIntValue(PreferencesKeys key, int value) async {
+    await _preferences.setInt(key.toString(), value);
+  }
+
+  int getIntValue(PreferencesKeys key) =>
+      _preferences.getInt(key.toString()) ?? 0;
 }

@@ -5,12 +5,10 @@ class AchievementsModel extends BaseModel{
   String title;
   int prizeCoin;
   String imagePath;
-  DateTime lastLoginDate;
   int plantedTreeCount;
   int friendsCount;
 
-  AchievementsModel(
-      this.lastLoginDate, this.plantedTreeCount, this.friendsCount);
+  AchievementsModel(this.plantedTreeCount, this.friendsCount);
 
   AchievementsModel.listing(this.title, this.prizeCoin, this.imagePath);
 

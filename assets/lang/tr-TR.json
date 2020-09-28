@@ -80,7 +80,12 @@
     "loginAppEveryDay": "Uygulamaya her gün giriş yaparak yeni ağaçlar dik",
     "byYou": "senin tarafından",
     "byYourFriends": "arkadaşların tarafından",
-    "byEveryone": "herkes tarafından"
+    "byEveryone": "herkes tarafından",
+    "loginStatus": "Giriş Durumu",
+    "xDays": ". Gün",
+    "yourPrizeToday": "Bugünkü ödülün",
+    "OK": "Tamam",
+    "doubleCoin": "İki kat coin"
 
 
 

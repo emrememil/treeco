@@ -1,4 +1,6 @@
 enum PreferencesKeys {
+  LAST_LOGIN_DAY,
+  COUNTER_OF_CONSECUTIVE_DAYS,
   TOKEN,
   BENI_HATIRLA
 }

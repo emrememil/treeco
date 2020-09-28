@@ -41,7 +41,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
         homeViewModel = model;
         WidgetsBinding.instance.addPostFrameCallback((timeStamp) => showDialog(
             context: context,
-            builder: (context) => CustomOpeningAppDialog(5, 50)));
+            builder: (context) => CustomOpeningAppDialog()));
       },
       onPageBuilder: (context, value) => body,
     );

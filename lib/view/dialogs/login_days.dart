@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:treeco/core/constants/app/app_constants.dart';
+import 'package:treeco/core/constants/enums/locale_keys_enum.dart';
+import 'package:treeco/core/init/cache/locale_manager.dart';
 import 'package:treeco/core/init/navigation/navigation_service.dart';
 import 'package:treeco/view/constants/custom_icons.dart';
 import 'package:treeco/view/constants/size_config.dart';
+import 'package:treeco/view/dialogs/view_models/login_days_view_model.dart';
+import 'package:treeco/core/extension/string_extension.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class CustomOpeningAppDialog extends StatelessWidget {
-  final int consecutiveDays;
-  final int prizeCoin;
 
-  CustomOpeningAppDialog(this.consecutiveDays, this.prizeCoin);
 
   @override
   Widget build(BuildContext context) {
+    initializeDateFormatting('tr');
+    LoginDays().sharedPreferencesOperations();
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       elevation: 0,
@@ -27,7 +31,7 @@ class CustomOpeningAppDialog extends StatelessWidget {
           padding: EdgeInsets.all(SizeConfig.getProportionateScreenWidth(16)),
           width: SizeConfig.screenWidth -
               SizeConfig.getProportionateScreenWidth(16),
-          height: SizeConfig.screenHeight / 1.8,
+          height: SizeConfig.screenHeight / 1.9,
           decoration: BoxDecoration(
             color: Colors.white,
             shape: BoxShape.rectangle,
@@ -36,7 +40,7 @@ class CustomOpeningAppDialog extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Text(
-                "Giriş Durumu",
+                'loginStatus'.locale,
                 style: TextStyle(
                     fontSize: SizeConfig.getProportionateScreenWidth(15),
                     color: Colors.black87,
@@ -46,11 +50,11 @@ class CustomOpeningAppDialog extends StatelessWidget {
                 height: SizeConfig.getProportionateScreenHeight(12),
               ),
               Container(
-                height: SizeConfig.screenHeight / 4,
+                height: SizeConfig.screenHeight / 5,
                 child: GridView.builder(
-                    itemCount: 12,
+                    itemCount: 15,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4),
+                        crossAxisCount: 5),
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: EdgeInsets.all(
@@ -58,7 +62,7 @@ class CustomOpeningAppDialog extends StatelessWidget {
                         child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
-                              color: Color(0xff50A387),
+                              color: (LoginDays.counterOfConsecutiveDays<index+1) ? Color(0xff50A387):Color(0xff64CCA9),
                             ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -66,27 +70,30 @@ class CustomOpeningAppDialog extends StatelessWidget {
                                 Align(
                                   alignment: Alignment.topCenter,
                                   child: Text(
-                                    "${index + 1}.gün",
+                                    "${index + 1}" + 'xDays'.locale,
                                     style: TextStyle(
                                         fontSize: SizeConfig
-                                            .getProportionateScreenWidth(12),
+                                            .getProportionateScreenWidth(11),
                                         color: Colors.white,
                                         fontFamily:
                                         ApplicationConstants.FONT_FAMILY),
                                   ),
                                 ),
                                 Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(6),
+                                  decoration: (LoginDays.counterOfConsecutiveDays>=index+1) ? BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
                                     color: Colors.white.withOpacity(0.2),
-                                  ),
+                                  ):null,
                                   width: SizeConfig.getProportionateScreenWidth(
-                                      24),
+                                      16),
                                   height:
                                   SizeConfig.getProportionateScreenWidth(
-                                      24),
-                                  child: Icon(Icons.check,
-                                      color: Colors.white),
+                                      16),
+                                  child: (LoginDays.counterOfConsecutiveDays>=index+1) ? Icon(Icons.check,
+                                      color: Colors.white, size: SizeConfig.getProportionateScreenWidth(
+                                        16),) : Icon(Icons.access_time,
+                                    color: Colors.white, size: SizeConfig.getProportionateScreenWidth(
+                                        16),),
                                 )
                               ],
                             )),
@@ -100,7 +107,7 @@ class CustomOpeningAppDialog extends StatelessWidget {
                 ),
               ),
               Text(
-                "Bugünkü ödülün",
+                'yourPrizeToday'.locale,
                 style: TextStyle(
                     fontSize: SizeConfig.getProportionateScreenWidth(14),
                     color: Colors.black,
@@ -141,7 +148,7 @@ class CustomOpeningAppDialog extends StatelessWidget {
                   },
                   icon: Icon(Icons.local_movies, color: Colors.white,),
                   label: Text(
-                    'İki kat coin',
+                    'doubleCoin'.locale,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize:
@@ -157,10 +164,12 @@ class CustomOpeningAppDialog extends StatelessWidget {
                   color: Color(0xff85CAAB),
                   elevation: 2,
                   onPressed: () {
+                    print("Son giriş tarih günü: " + LocaleManager.instance.getIntValue(PreferencesKeys.LAST_LOGIN_DAY).toString());
+                    print("Üst üste giriş sayısı: " +LocaleManager.instance.getIntValue(PreferencesKeys.COUNTER_OF_CONSECUTIVE_DAYS).toString());
                     NavigationService.instance.navigatePop();
                   },
                   child: Text(
-                    'Tamam',
+                    'OK'.locale,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize:
@@ -175,4 +184,6 @@ class CustomOpeningAppDialog extends StatelessWidget {
       ],
     );
   }
+
+
 }
