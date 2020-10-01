@@ -26,7 +26,7 @@ class MainDrawer extends StatelessWidget {
               _createDrawerItem(icon: Icons.store, text: 'store'.locale),
               _createDrawerItem(icon: MdiIcons.newspaperVariantMultiple, text: 'news'.locale),
               _createDrawerItem(icon: MdiIcons.account, text: 'profile'.locale, onTap: () => NavigationService.instance.navigateToPage(path: NavigationConstants.PROFILE)),
-              _createDrawerItem(icon: Icons.settings, text: 'settings'.locale),
+              _createDrawerItem(icon: Icons.settings, text: 'settings'.locale, onTap: () => NavigationService.instance.navigateToPage(path: NavigationConstants.SETTINGS))
             ],
           ),
         ),

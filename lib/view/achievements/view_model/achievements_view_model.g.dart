@@ -13,11 +13,11 @@ mixin _$AchievementsViewModel on _AchievementsViewModelBase, Store {
       ActionController(name: '_AchievementsViewModelBase');
 
   @override
-  dynamic sevenDaysCompletedDay() {
+  dynamic calculateChart() {
     final _$actionInfo = _$_AchievementsViewModelBaseActionController
-        .startAction(name: '_AchievementsViewModelBase.sevenDaysCompletedDay');
+        .startAction(name: '_AchievementsViewModelBase.calculateChart');
     try {
-      return super.sevenDaysCompletedDay();
+      return super.calculateChart();
     } finally {
       _$_AchievementsViewModelBaseActionController.endAction(_$actionInfo);
     }

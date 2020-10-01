@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_chart/flutter_circular_chart.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:treeco/core/base/view/base_widget.dart';
 import 'package:treeco/core/constants/app/app_constants.dart';
@@ -27,7 +26,7 @@ class _AchievementsScreenState extends State<AchievementsScreen> {
       onModelReady: (model) {
         model.setContext(context);
         _achievementsViewModel = model;
-        _achievementsViewModel.sevenDaysCompletedDay();
+        _achievementsViewModel.calculateChart();
       },
       onPageBuilder: (context, value) => body,
     );
@@ -45,95 +44,97 @@ class _AchievementsScreenState extends State<AchievementsScreen> {
               child: ListView.builder(
                     itemCount: _achievementsViewModel.achievementsList.length,
                     itemBuilder: (context, index) {
-                      return Container(
-                        width: SizeConfig.screenWidth,
-                        height: SizeConfig.getProportionateScreenHeight(75),
-                        color: Color(0xff0B806E),
-                        child: Center(
-                          child: ListTile(
-                              leading: Image(
-                                //width: SizeConfig.getProportionateScreenWidth(60),
-                                image: AssetImage(_achievementsViewModel
-                                    .achievementsList[index].imagePath),
-                              ),
-                              title: Text(
-                                _achievementsViewModel
-                                    .achievementsList[index].title,
-                                style: TextStyle(
-                                    fontSize:
-                                        SizeConfig.getProportionateScreenWidth(
-                                            14),
-                                    color: Colors.white,
-                                    fontFamily: ApplicationConstants.FONT_FAMILY),
-                              ),
-                              subtitle: Row(
-                                children: <Widget>[
-                                  Text(
-                                    "Ödül:",
-                                    style: TextStyle(
-                                        fontSize: SizeConfig
-                                            .getProportionateScreenWidth(11),
-                                        color: Colors.white,
-                                        fontFamily:
-                                            ApplicationConstants.FONT_FAMILY2),
-                                  ),
-                                  SizedBox(
-                                    width:
-                                        SizeConfig.getProportionateScreenWidth(8),
-                                  ),
-                                  Icon(
-                                    CustomIcons.coin,
-                                    color: Color(0xffF6C358),
-                                    size: SizeConfig.getProportionateScreenWidth(
-                                        12),
-                                  ),
-                                  SizedBox(
-                                    width:
-                                        SizeConfig.getProportionateScreenWidth(4),
-                                  ),
-                                  Text(
-                                    _achievementsViewModel
-                                        .achievementsList[index].prizeCoin
-                                        .toString(),
-                                    style: TextStyle(
-                                        fontSize: SizeConfig
-                                            .getProportionateScreenWidth(11),
-                                        color: Colors.white,
-                                        fontFamily:
-                                            ApplicationConstants.FONT_FAMILY),
-                                  ),
-                                ],
-                              ),
-                            trailing: AnimatedCircularChart(
-                              key: _chartKey,
-                              size: Size(SizeConfig.getProportionateScreenWidth(60),
-                                  SizeConfig.getProportionateScreenHeight(60)),
-                              initialChartData: <CircularStackEntry>[
-                                new CircularStackEntry(
-                                  <CircularSegmentEntry>[
-                                    new CircularSegmentEntry(
-                                      _achievementsViewModel.completedDay,
-                                      Color(0xff1ABC9C),
-                                      rankKey: 'completed',
+                      return Padding(
+                        padding: EdgeInsets.only(top:SizeConfig.getProportionateScreenHeight(8)),
+                        child: Container(
+                          width: SizeConfig.screenWidth,
+                          height: SizeConfig.getProportionateScreenHeight(75),
+                          color: Color(0xff0B806E),
+                          child: Center(
+                            child: ListTile(
+                                leading: Image(
+                                  //width: SizeConfig.getProportionateScreenWidth(60),
+                                  image: AssetImage(_achievementsViewModel
+                                      .achievementsList[index].imagePath),
+                                ),
+                                title: Text(
+                                  _achievementsViewModel
+                                      .achievementsList[index].title,
+                                  style: TextStyle(
+                                      fontSize:
+                                          SizeConfig.getProportionateScreenWidth(
+                                              14),
+                                      color: Colors.white,
+                                      fontFamily: ApplicationConstants.FONT_FAMILY),
+                                ),
+                                subtitle: Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Ödül:",
+                                      style: TextStyle(
+                                          fontSize: SizeConfig
+                                              .getProportionateScreenWidth(11),
+                                          color: Colors.white,
+                                          fontFamily:
+                                              ApplicationConstants.FONT_FAMILY2),
                                     ),
-                                    new CircularSegmentEntry(
-                                      _achievementsViewModel.remaining,
-                                      Colors.white,
-                                      rankKey: 'remaining',
+                                    SizedBox(
+                                      width:
+                                          SizeConfig.getProportionateScreenWidth(8),
+                                    ),
+                                    Icon(
+                                      CustomIcons.coin,
+                                      color: Color(0xffF6C358),
+                                      size: SizeConfig.getProportionateScreenWidth(
+                                          12),
+                                    ),
+                                    SizedBox(
+                                      width:
+                                          SizeConfig.getProportionateScreenWidth(4),
+                                    ),
+                                    Text(
+                                      _achievementsViewModel
+                                          .achievementsList[index].prizeCoin
+                                          .toString(),
+                                      style: TextStyle(
+                                          fontSize: SizeConfig
+                                              .getProportionateScreenWidth(11),
+                                          color: Colors.white,
+                                          fontFamily:
+                                              ApplicationConstants.FONT_FAMILY),
                                     ),
                                   ],
-                                  rankKey: 'progress',
                                 ),
-                              ],
-                              chartType: CircularChartType.Radial,
-                              percentageValues: true,
-                              holeLabel: '${_achievementsViewModel.counterOfConsecutiveDays.toString()}/7',
-                              labelStyle:  TextStyle(
-                                fontSize: SizeConfig
-                                .getProportionateScreenWidth(16),
-                              color: Colors.white,
-                              fontFamily:
-                              ApplicationConstants.FONT_FAMILY),
+                              trailing: AnimatedCircularChart(
+                                size: Size(SizeConfig.getProportionateScreenWidth(60),
+                                    SizeConfig.getProportionateScreenHeight(60)),
+                                initialChartData: <CircularStackEntry>[
+                                  new CircularStackEntry(
+                                    <CircularSegmentEntry>[
+                                      new CircularSegmentEntry(
+                                        _achievementsViewModel.achievementsList[index].completedChart,
+                                        Color(0xff1ABC9C),
+                                        rankKey: 'completed',
+                                      ),
+                                      new CircularSegmentEntry(
+                                       _achievementsViewModel.achievementsList[index].remainingChart,
+                                        Colors.white,
+                                        rankKey: 'remaining',
+                                      ),
+                                    ],
+                                    rankKey: 'progress',
+                                  ),
+                                ],
+                                chartType: CircularChartType.Radial,
+                                percentageValues: true,
+                                holeLabel: '${_achievementsViewModel.counterOfConsecutiveDays.toString()}/${_achievementsViewModel.achievementsList[index].holeLabel.toString()}',
+                                labelStyle:  TextStyle(
+                                  fontSize: SizeConfig
+                                  .getProportionateScreenWidth(16),
+                                color: Colors.white,
+                                fontFamily:
+                                ApplicationConstants.FONT_FAMILY),
+                              ),
                             ),
                           ),
                         ),

@@ -3,6 +3,9 @@ import 'package:treeco/core/base/model/base_model.dart';
 class AchievementsModel extends BaseModel{
 
   String title;
+  double completedChart;
+  double remainingChart;
+  int holeLabel;
   int prizeCoin;
   String imagePath;
   int plantedTreeCount;
@@ -10,7 +13,7 @@ class AchievementsModel extends BaseModel{
 
   AchievementsModel(this.plantedTreeCount, this.friendsCount);
 
-  AchievementsModel.listing(this.title, this.prizeCoin, this.imagePath);
+  AchievementsModel.listing(this.title, this.prizeCoin, this.imagePath, this.completedChart, this.remainingChart, this.holeLabel);
 
   @override
   fromJson(Map<String, Object> json) {

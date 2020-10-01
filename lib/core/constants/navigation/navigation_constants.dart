@@ -16,4 +16,5 @@ class NavigationConstants {
   static const FOREST = "/forest";
   static const REAL_FOREST = "/realForest";
   static const ACHIEVEMENTS = "/achievements";
+  static const SETTINGS = "/settings";
 }
