@@ -12,4 +12,7 @@ abstract class _SettingsViewModelBase with Store,BaseViewModel{
 
   void init() {}
 
+  @observable
+  bool notificationSwitch=true;
+
 }

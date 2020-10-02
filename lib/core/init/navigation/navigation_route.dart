@@ -17,6 +17,7 @@ import 'package:treeco/view/personal/personal_information_settings/view/informat
 import 'package:treeco/view/personal/phone_number_input/view/phone_input_view.dart';
 import 'package:treeco/view/personal/profile/view/profile_view.dart';
 import 'package:treeco/view/personal/profile_edit/view/profile_edit_view.dart';
+import 'package:treeco/view/settings/view/change_language_view.dart';
 import 'package:treeco/view/settings/view/settings_view.dart';
 import 'package:treeco/view/splash/view/splash_view.dart';
 
@@ -65,6 +66,8 @@ class NavigationRoute {
         return normalNavigate(AchievementsScreen());
       case NavigationConstants.SETTINGS:
         return normalNavigate(SettingsScreen());
+      case NavigationConstants.CHANGE_LANGUAGE:
+        return normalNavigate(ChangeLanguageScreen());
       default:
         return MaterialPageRoute(
           builder: (context) => NotFoundNavigationWidget(),

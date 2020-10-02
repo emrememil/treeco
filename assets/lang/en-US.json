@@ -85,7 +85,18 @@
     "xDays": ". Days",
     "yourPrizeToday": "Your prize today",
     "OK": "OK",
-    "doubleCoin": "Double coin"
+    "doubleCoin": "Double coin",
+    "turkish": "Turkish",
+    "english": "English",
+    "changeLanguage": "Change Language",
+    "account": "Account",
+    "aboutUs": "About Us",
+    "signOut": "Sign Out",
+    "notification": "Notifications",
+    "faqAndSupport": "FAQ and Support",
+    "rateUs": "Rate Us",
+    "playHelpGuide": "Play Help Guide",
+    "privacyPolicy": "Privacy Policy"
 
 
 
