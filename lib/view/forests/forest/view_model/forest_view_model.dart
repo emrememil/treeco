@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:mobx/mobx.dart';
 import 'package:treeco/core/base/model/base_view_model.dart';
+import 'package:treeco/core/extension/string_extension.dart';
 
 part 'forest_view_model.g.dart';
 
@@ -69,19 +70,19 @@ abstract class _ForestViewModelBase with Store,BaseViewModel{
   getTitlesData(value){
     switch (value.toInt()) {
       case 0:
-        return 'Pzt';
+        return 'mon'.locale;
       case 1:
-        return 'Sal';
+        return 'tue'.locale;
       case 2:
-        return 'Çar';
+        return 'wed'.locale;
       case 3:
-        return 'Per';
+        return 'thu'.locale;
       case 4:
-        return 'Cum';
+        return 'fri'.locale;
       case 5:
-        return 'Cts';
+        return 'sat'.locale;
       case 6:
-        return 'Paz';
+        return 'sun'.locale;
       default:
         return '';
     }

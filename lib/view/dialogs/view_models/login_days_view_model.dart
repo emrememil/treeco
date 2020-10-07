@@ -20,7 +20,7 @@ class LoginDays{
       LocaleManager.instance.setIntValue(PreferencesKeys.COUNTER_OF_CONSECUTIVE_DAYS, counterOfConsecutiveDays);
     }
     else if(lastDay == thisDay){
-      //Bir gün içerisindeki giriş sayisi
+      //Bir gün içerisinde birden fazla giriş
     }
     else{
       LocaleManager.instance.setIntValue(PreferencesKeys.LAST_LOGIN_DAY, thisDay);

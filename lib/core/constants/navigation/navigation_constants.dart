@@ -18,4 +18,5 @@ class NavigationConstants {
   static const ACHIEVEMENTS = "/achievements";
   static const SETTINGS = "/settings";
   static const CHANGE_LANGUAGE = "/changeLanguage";
+  static const NEWS = "/news";
 }

@@ -96,6 +96,15 @@
     "faqAndSupport": "FAQ and Support",
     "rateUs": "Rate Us",
     "playHelpGuide": "Play Help Guide",
-    "privacyPolicy": "Privacy Policy"
+    "privacyPolicy": "Privacy Policy",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat",
+    "sun": "Sun",
+    "followUsOn": "Follow us on",
+    "numberOfDryingTrees" : "Number Of Drying Trees"
 
 }

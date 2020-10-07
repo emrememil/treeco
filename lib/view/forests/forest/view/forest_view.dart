@@ -75,31 +75,34 @@ class _ForestScreenState extends State<ForestScreen> {
                             bottomRight: Radius.circular(30)),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.only(
-                            left: SizeConfig.getProportionateScreenWidth(32),
-                            top: SizeConfig.getProportionateScreenHeight(16)),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              'treePlantingSituation'.locale,
-                              style: TextStyle(
-                                  fontSize:
-                                  SizeConfig.getProportionateScreenWidth(21),
-                                  color: Colors.white,
-                                  fontFamily: ApplicationConstants.FONT_FAMILY),
-                            ),
-                            Text(
-                              'lastWeekChart'.locale,
-                              style: TextStyle(
-                                  fontSize:
-                                  SizeConfig.getProportionateScreenWidth(14),
-                                  color: Colors.white,
-                                  fontFamily: ApplicationConstants.FONT_FAMILY),
-                            ),
-                          ],
-                        )
-                      ),
+                          padding: EdgeInsets.only(
+                              left: SizeConfig.getProportionateScreenWidth(32),
+                              top: SizeConfig.getProportionateScreenHeight(16)),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                'treePlantingSituation'.locale,
+                                style: TextStyle(
+                                    fontSize:
+                                        SizeConfig.getProportionateScreenWidth(
+                                            21),
+                                    color: Colors.white,
+                                    fontFamily:
+                                        ApplicationConstants.FONT_FAMILY),
+                              ),
+                              Text(
+                                'lastWeekChart'.locale,
+                                style: TextStyle(
+                                    fontSize:
+                                        SizeConfig.getProportionateScreenWidth(
+                                            14),
+                                    color: Colors.white,
+                                    fontFamily:
+                                        ApplicationConstants.FONT_FAMILY),
+                              ),
+                            ],
+                          )),
                     ),
                     Padding(
                       padding:
@@ -110,6 +113,7 @@ class _ForestScreenState extends State<ForestScreen> {
                   ],
                 ),
                 treeCountContainer,
+                driedTreeCountContainer,
                 changeRealTreeContainer,
 
                 //Chart,
@@ -282,8 +286,9 @@ class _ForestScreenState extends State<ForestScreen> {
 
   Padding get changeRealTreeContainer {
     return Padding(
-      padding:
-          EdgeInsets.only(top: SizeConfig.getProportionateScreenHeight(16)),
+      padding: EdgeInsets.only(
+          top: SizeConfig.getProportionateScreenHeight(16),
+          bottom: SizeConfig.getProportionateScreenHeight(16)),
       child: Container(
         width:
             SizeConfig.screenWidth - SizeConfig.getProportionateScreenWidth(50),
@@ -323,7 +328,10 @@ class _ForestScreenState extends State<ForestScreen> {
                 color: Color(0xffF8F8F8),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Icon(Icons.arrow_forward_ios, color: Color(0xff468773),),
+              child: Icon(
+                Icons.arrow_forward_ios,
+                color: Color(0xff468773),
+              ),
             )
           ],
         ),
@@ -357,7 +365,8 @@ class _ForestScreenState extends State<ForestScreen> {
                   fontFamily: ApplicationConstants.FONT_FAMILY2),
             ),
             Padding(
-              padding: EdgeInsets.only(bottom:SizeConfig.getProportionateScreenHeight(32)),
+              padding: EdgeInsets.only(
+                  bottom: SizeConfig.getProportionateScreenHeight(32)),
               child: Container(
                 height: SizeConfig.getProportionateScreenWidth(80),
                 width: SizeConfig.getProportionateScreenWidth(80),
@@ -385,6 +394,59 @@ class _ForestScreenState extends State<ForestScreen> {
     );
   }
 
+  get driedTreeCountContainer {
+    return Padding(
+      padding:
+          EdgeInsets.only(top: SizeConfig.getProportionateScreenHeight(16)),
+      child: Container(
+        width:
+            SizeConfig.screenWidth - SizeConfig.getProportionateScreenWidth(24),
+        height: SizeConfig.screenHeight / 3.5,
+        decoration: BoxDecoration(
+          color: Color(ApplicationConstants.BACKGROUND_COLOR2),
+          borderRadius: BorderRadius.circular(15),
+          image: DecorationImage(
+              image: AssetImage("assets/images/dried_forest.jpg"),
+              fit: BoxFit.cover),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Text(
+              'numberOfDryingTrees'.locale,
+              style: TextStyle(
+                  fontSize: SizeConfig.getProportionateScreenWidth(16),
+                  color: Colors.white,
+                  fontFamily: ApplicationConstants.FONT_FAMILY2),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                  bottom: SizeConfig.getProportionateScreenHeight(32)),
+              child: Container(
+                height: SizeConfig.getProportionateScreenWidth(80),
+                width: SizeConfig.getProportionateScreenWidth(80),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xff7B2A0C).withOpacity(0.5),
+                ),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "2",
+                    style: TextStyle(
+                        fontSize: SizeConfig.getProportionateScreenWidth(36),
+                        color: Colors.white,
+                        fontFamily: ApplicationConstants.FONT_FAMILY2),
+                  ),
+                ),
+              ),
+            ),
+            //raisedButton,
+          ],
+        ),
+      ),
+    );
+  }
 
   AppBar get appBar {
     return AppBar(

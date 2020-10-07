@@ -7,6 +7,7 @@ import 'package:treeco/view/community/leaderboard/view/leaderboard_view.dart';
 import 'package:treeco/view/community/timeline/view/timeline_view.dart';
 import 'package:treeco/view/forests/forest/view/forest_view.dart';
 import 'package:treeco/view/forests/real_forest/view/real_forest_view.dart';
+import 'package:treeco/view/news/view/news_view.dart';
 import 'package:treeco/view/onboarding/signin/view/signin_view.dart';
 import 'package:treeco/view/onboarding/signup/view/signup_view.dart';
 import 'package:treeco/view/onboarding/welcome/welcome_view.dart';
@@ -68,6 +69,8 @@ class NavigationRoute {
         return normalNavigate(SettingsScreen());
       case NavigationConstants.CHANGE_LANGUAGE:
         return normalNavigate(ChangeLanguageScreen());
+      case NavigationConstants.NEWS:
+        return normalNavigate(NewsScreen());
       default:
         return MaterialPageRoute(
           builder: (context) => NotFoundNavigationWidget(),

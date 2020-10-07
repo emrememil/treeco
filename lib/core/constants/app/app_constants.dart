@@ -7,6 +7,7 @@ class ApplicationConstants {
   static const FACEBOOK_ICON = 'assets/icons/facebook_icon.png';
   static const GOOGLE_ICON = 'assets/icons/google_plus.png';
   static const TWITTER_ICON = 'assets/icons/twitter_icon.png';
+  static const INSTAGRAM_ICON = 'assets/icons/instagram_icon.png';
   static const DARK_GREEN = 0xff163629;
   static const TEXT_GREEN = 0xff4D953D;
   static const TEXT_GREY = 0xff6A6A6A;
