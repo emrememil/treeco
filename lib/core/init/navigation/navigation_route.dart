@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:treeco/core/components/card/not_found_navigation_widget.dart';
 import 'package:treeco/core/constants/navigation/navigation_constants.dart';
 import 'package:treeco/view/achievements/view/achievements_view.dart';
+import 'package:treeco/view/community/add_friends/view/add_friends_view.dart';
 import 'package:treeco/view/community/friends/view/friends_view.dart';
 import 'package:treeco/view/community/leaderboard/view/leaderboard_view.dart';
 import 'package:treeco/view/community/timeline/view/timeline_view.dart';
@@ -71,6 +72,8 @@ class NavigationRoute {
         return normalNavigate(ChangeLanguageScreen());
       case NavigationConstants.NEWS:
         return normalNavigate(NewsScreen());
+      case NavigationConstants.ADD_FRIENDS:
+        return normalNavigate(AddFriendsScreen());
       default:
         return MaterialPageRoute(
           builder: (context) => NotFoundNavigationWidget(),

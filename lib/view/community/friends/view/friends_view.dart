@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:treeco/core/base/view/base_widget.dart';
 import 'package:treeco/core/constants/app/app_constants.dart';
+import 'package:treeco/core/constants/navigation/navigation_constants.dart';
 import 'package:treeco/core/extension/string_extension.dart';
+import 'package:treeco/core/init/navigation/navigation_service.dart';
 import 'package:treeco/view/community/friends/model/friends_model.dart';
 import 'package:treeco/view/community/friends/view_model/friends_view_model.dart';
 import 'package:treeco/view/constants/custom_icons.dart';
@@ -141,10 +143,13 @@ class _FriendsScreenState extends State<FriendsScreen> {
         Padding(
           padding: EdgeInsets.only(
               right: SizeConfig.getProportionateScreenWidth(16)),
-          child: Icon(
-            Icons.person_add,
-            color: Color(ApplicationConstants.LIGHT_GREEN),
-            size: SizeConfig.getProportionateScreenWidth(20),
+          child: InkWell(
+            onTap: () => NavigationService.instance.navigateToPage(path: NavigationConstants.ADD_FRIENDS),
+            child: Icon(
+              Icons.person_add,
+              color: Color(ApplicationConstants.LIGHT_GREEN),
+              size: SizeConfig.getProportionateScreenWidth(20),
+            ),
           ),
         ),
       ],

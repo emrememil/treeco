@@ -19,4 +19,5 @@ class NavigationConstants {
   static const SETTINGS = "/settings";
   static const CHANGE_LANGUAGE = "/changeLanguage";
   static const NEWS = "/news";
+  static const ADD_FRIENDS = "/addFriends";
 }
