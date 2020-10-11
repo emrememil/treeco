@@ -6,6 +6,8 @@ import 'package:treeco/view/community/add_friends/model/add_friends_model.dart';
 import 'package:treeco/view/community/add_friends/view_model/add_friends_view_model.dart';
 import 'package:treeco/view/constants/size_config.dart';
 import 'package:treeco/core/extension/string_extension.dart';
+import 'package:treeco/view/dialogs/add_friends_confirm_dialogs.dart';
+import 'package:treeco/view/dialogs/view_models/add_friends_confirm_view_model.dart';
 
 class AddFriendsScreen extends StatefulWidget {
   @override
@@ -37,6 +39,8 @@ class _AddFriendsScreenState extends State<AddFriendsScreen> {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(20)),
         child: SearchBar<AddFriendsModel>(
+          hintText: 'enterUsername'.locale,
+          cancellationWidget: Text('cancel'.locale),
           searchBarController: addFriendsViewModel.searchBarController,
           onSearch: addFriendsViewModel.getAllUsers,
           onItemFound: (AddFriendsModel addModel, int index){
@@ -56,17 +60,27 @@ class _AddFriendsScreenState extends State<AddFriendsScreen> {
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal:SizeConfig.getProportionateScreenWidth(8)),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Text("Ekle",
-                        style: TextStyle(
-                          fontSize: SizeConfig.getProportionateScreenWidth(12),
-                          color: Colors.black,
-                          fontFamily: ApplicationConstants.FONT_FAMILY2),),
-                      SizedBox(width: 4,),
-                      Icon(Icons.add, color: Color(ApplicationConstants.BACKGROUND_COLOR),)
-                    ],
+                  child: InkWell(
+                    onTap: () => showDialog(
+                        context: context,
+                        builder: (context){
+                          AddFriendsConfirm.instance.username=addModel.username;
+                          AddFriendsConfirm.instance.nameAndSurname=addModel.nameAndSurname;
+                          AddFriendsConfirm.instance.imagePath=addModel.imagePath;
+                          return AddFriendsConfirmDialog();
+                        }),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Text('add'.locale,
+                          style: TextStyle(
+                            fontSize: SizeConfig.getProportionateScreenWidth(12),
+                            color: Colors.black,
+                            fontFamily: ApplicationConstants.FONT_FAMILY2),),
+                        SizedBox(width: 4,),
+                        Icon(Icons.add, color: Color(ApplicationConstants.BACKGROUND_COLOR),)
+                      ],
+                    ),
                   ),
                 ),
               ),

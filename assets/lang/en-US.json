@@ -106,7 +106,11 @@
     "sun": "Sun",
     "followUsOn": "Follow us on",
     "numberOfDryingTrees" : "Number Of Drying Trees",
-    "addFriends": "Add Friends"
+    "addFriends": "Add Friends",
+    "add": "Add",
+    "cancel": "Cancel",
+    "enterUsername": "Enter username",
+    "youAreAboutAddUser": "You are about to add this user"
 
 
 

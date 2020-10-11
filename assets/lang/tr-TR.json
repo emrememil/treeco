@@ -106,7 +106,11 @@
     "sun": "Paz",
     "followUsOn": "Bizi takip edin",
     "numberOfDryingTrees" : "Kuruyan Ağaç Sayısı",
-    "addFriends": "Arkadaş Ekle"
+    "addFriends": "Arkadaş Ekle",
+    "add": "Ekle",
+    "cancel": "İptal",
+    "enterUsername": "Kullanıcı adı girin",
+    "youAreAboutAddUser": "Bu kullanıcıyı eklemek üzeresiniz"
 
 
 
