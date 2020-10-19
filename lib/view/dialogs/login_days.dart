@@ -31,7 +31,7 @@ class CustomOpeningAppDialog extends StatelessWidget {
           padding: EdgeInsets.all(SizeConfig.getProportionateScreenWidth(16)),
           width: SizeConfig.screenWidth -
               SizeConfig.getProportionateScreenWidth(16),
-          height: SizeConfig.screenHeight / 1.9,
+          height: SizeConfig.screenHeight / 1.7,
           decoration: BoxDecoration(
             color: Colors.white,
             shape: BoxShape.rectangle,
@@ -50,7 +50,7 @@ class CustomOpeningAppDialog extends StatelessWidget {
                 height: SizeConfig.getProportionateScreenHeight(12),
               ),
               Container(
-                height: SizeConfig.screenHeight / 5,
+                height: SizeConfig.screenHeight / 3.8,
                 child: GridView.builder(
                     itemCount: 15,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -138,43 +138,48 @@ class CustomOpeningAppDialog extends StatelessWidget {
                 ],
               ),
               SizedBox(height: SizeConfig.getProportionateScreenHeight(8),),
-              SizedBox(width: SizeConfig.getProportionateScreenWidth(200),
-                child: RaisedButton.icon(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)),
-                  color: Color(0xffF2C94D),
-                  elevation: 2,
-                  onPressed: () {
-                  },
-                  icon: Icon(Icons.local_movies, color: Colors.white,),
-                  label: Text(
-                    'doubleCoin'.locale,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize:
-                        SizeConfig.getProportionateScreenWidth(13),
-                        fontFamily: ApplicationConstants.FONT_FAMILY2),
+              Expanded(
+                child: SizedBox(width: SizeConfig.screenWidth/2,
+                  child: RaisedButton.icon(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    color: Color(0xffF2C94D),
+                    elevation: 2,
+                    onPressed: () {
+                    },
+                    icon: Icon(Icons.local_movies, color: Colors.white,),
+                    label: Text(
+                      'doubleCoin'.locale,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize:
+                          SizeConfig.getProportionateScreenWidth(13),
+                          fontFamily: ApplicationConstants.FONT_FAMILY2),
+                    ),
                   ),
                 ),
               ),
-              SizedBox(width: SizeConfig.getProportionateScreenWidth(200),
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)),
-                  color: Color(0xff85CAAB),
-                  elevation: 2,
-                  onPressed: () {
-                    print("Son giriş tarih günü: " + LocaleManager.instance.getIntValue(PreferencesKeys.LAST_LOGIN_DAY).toString());
-                    print("Üst üste giriş sayısı: " +LocaleManager.instance.getIntValue(PreferencesKeys.COUNTER_OF_CONSECUTIVE_DAYS).toString());
-                    NavigationService.instance.navigatePop();
-                  },
-                  child: Text(
-                    'OK'.locale,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize:
-                        SizeConfig.getProportionateScreenWidth(13),
-                        fontFamily: ApplicationConstants.FONT_FAMILY2),
+              SizedBox(height: SizeConfig.getProportionateScreenHeight(8),),
+              Expanded(
+                child: SizedBox(width: SizeConfig.screenWidth/2,
+                  child: RaisedButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    color: Color(0xff85CAAB),
+                    elevation: 2,
+                    onPressed: () {
+                      print("Son giriş tarih günü: " + LocaleManager.instance.getIntValue(PreferencesKeys.LAST_LOGIN_DAY).toString());
+                      print("Üst üste giriş sayısı: " +LocaleManager.instance.getIntValue(PreferencesKeys.COUNTER_OF_CONSECUTIVE_DAYS).toString());
+                      NavigationService.instance.navigatePop();
+                    },
+                    child: Text(
+                      'OK'.locale,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize:
+                          SizeConfig.getProportionateScreenWidth(13),
+                          fontFamily: ApplicationConstants.FONT_FAMILY2),
+                    ),
                   ),
                 ),
               )

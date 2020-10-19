@@ -20,4 +20,5 @@ class NavigationConstants {
   static const CHANGE_LANGUAGE = "/changeLanguage";
   static const NEWS = "/news";
   static const ADD_FRIENDS = "/addFriends";
+  static const STORE = "/store";
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobx/mobx.dart';
 import 'package:treeco/core/components/card/not_found_navigation_widget.dart';
 import 'package:treeco/core/constants/navigation/navigation_constants.dart';
 import 'package:treeco/view/achievements/view/achievements_view.dart';
@@ -22,6 +23,7 @@ import 'package:treeco/view/personal/profile_edit/view/profile_edit_view.dart';
 import 'package:treeco/view/settings/view/change_language_view.dart';
 import 'package:treeco/view/settings/view/settings_view.dart';
 import 'package:treeco/view/splash/view/splash_view.dart';
+import 'package:treeco/view/store/view/store_view.dart';
 
 
 class NavigationRoute {
@@ -74,6 +76,8 @@ class NavigationRoute {
         return normalNavigate(NewsScreen());
       case NavigationConstants.ADD_FRIENDS:
         return normalNavigate(AddFriendsScreen());
+      case NavigationConstants.STORE:
+        return normalNavigate(StoreScreen());
       default:
         return MaterialPageRoute(
           builder: (context) => NotFoundNavigationWidget(),
