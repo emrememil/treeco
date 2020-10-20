@@ -9,6 +9,7 @@ import 'package:treeco/view/achievements/view/achievements_view.dart';
 import 'package:treeco/view/constants/size_config.dart';
 import 'package:treeco/view/home/view/home_view.dart';
 import 'package:treeco/view/onboarding/welcome/welcome_view.dart';
+import 'package:treeco/view/store/view/store_view.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

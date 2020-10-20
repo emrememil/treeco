@@ -5,6 +5,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:treeco/core/base/view/base_widget.dart';
 import 'package:treeco/core/constants/app/app_constants.dart';
+import 'package:treeco/core/constants/navigation/navigation_constants.dart';
 import 'package:treeco/core/extension/string_extension.dart';
 import 'package:treeco/core/init/navigation/navigation_service.dart';
 import 'package:treeco/view/constants/size_config.dart';
@@ -139,45 +140,48 @@ class _RealForestScreenState extends State<RealForestScreen> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(right:SizeConfig.getProportionateScreenWidth(8)),
-                      child: Container(
-                        height: SizeConfig.getProportionateScreenHeight(55),
-                        width: SizeConfig.getProportionateScreenWidth(150),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          color: Color(ApplicationConstants.BACKGROUND_COLOR2),
-                          gradient: LinearGradient(
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                              colors: [Color(0xff91D183), Color(0xff5CA985)]),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Icon(
-                              MdiIcons.crown,
-                              color: Colors.yellow,
-                              size: SizeConfig.getProportionateScreenWidth(28),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 8.0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: <Widget>[
-                                  Text(
-                                    'proVersion'.locale,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        fontFamily: ApplicationConstants.FONT_FAMILY2,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: SizeConfig.getProportionateScreenWidth(12),
-                                        color: Colors.white),
-                                  ),
-                                ],
+                      child: InkWell(
+                        onTap: () => NavigationService.instance.navigateToPage(path: NavigationConstants.STORE),
+                        child: Container(
+                          height: SizeConfig.getProportionateScreenHeight(55),
+                          width: SizeConfig.getProportionateScreenWidth(150),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Color(ApplicationConstants.BACKGROUND_COLOR2),
+                            gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [Color(0xff91D183), Color(0xff5CA985)]),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Icon(
+                                MdiIcons.crown,
+                                color: Colors.yellow,
+                                size: SizeConfig.getProportionateScreenWidth(28),
                               ),
-                            ),
-                          ],
+                              Padding(
+                                padding: EdgeInsets.only(left: 8.0),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: <Widget>[
+                                    Text(
+                                      'proVersion'.locale,
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontFamily: ApplicationConstants.FONT_FAMILY2,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: SizeConfig.getProportionateScreenWidth(12),
+                                          color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     )

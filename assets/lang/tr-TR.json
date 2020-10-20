@@ -110,7 +110,19 @@
     "add": "Ekle",
     "cancel": "İptal",
     "enterUsername": "Kullanıcı adı girin",
-    "youAreAboutAddUser": "Bu kullanıcıyı eklemek üzeresiniz"
+    "youAreAboutAddUser": "Bu kullanıcıyı eklemek üzeresiniz",
+    "choosePackage": "Bir paket seçin",
+    "monthly": "Aylık",
+    "yearly": "Yıllık",
+    "package": "Paket ",
+    "month": "/ Ay",
+    "year": "/ Yıl",
+    "dailyCoin": "Günlük Coin: + ",
+    "realTree": " Gerçek Ağaç",
+    "continue": "Devam et"
+
+
+
 
 
 

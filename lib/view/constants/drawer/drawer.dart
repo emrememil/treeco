@@ -34,55 +34,58 @@ class MainDrawer extends StatelessWidget {
     );
   }
 
-  Container get drawerHeader {
-    return Container(
-      height: SizeConfig.getProportionateScreenHeight(120),
-      width: double.infinity,
-      child: DrawerHeader(
-        decoration: BoxDecoration(
-          color: Color(ApplicationConstants.BACKGROUND_COLOR2),
-          gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [Color(0xff91D183), Color(0xff5CA985)]),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Icon(
-              MdiIcons.crown,
-              color: Colors.yellow,
-              size: SizeConfig.getProportionateScreenWidth(42),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  Text(
-                    'proVersion'.locale,
-                    style: TextStyle(
-                        fontFamily: ApplicationConstants.FONT_FAMILY2,
-                        fontWeight: FontWeight.bold,
-                        fontSize: SizeConfig.getProportionateScreenWidth(14),
-                        color: Colors.white),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 4.0),
-                    child: Text(
-                      'moreInfo'.locale,
+   get drawerHeader {
+    return InkWell(
+      onTap: () => NavigationService.instance.navigateToPage(path: NavigationConstants.STORE),
+      child: Container(
+        height: SizeConfig.getProportionateScreenHeight(120),
+        width: double.infinity,
+        child: DrawerHeader(
+          decoration: BoxDecoration(
+            color: Color(ApplicationConstants.BACKGROUND_COLOR2),
+            gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [Color(0xff91D183), Color(0xff5CA985)]),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                MdiIcons.crown,
+                color: Colors.yellow,
+                size: SizeConfig.getProportionateScreenWidth(42),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Text(
+                      'proVersion'.locale,
                       style: TextStyle(
                           fontFamily: ApplicationConstants.FONT_FAMILY2,
-                          color: Colors.white,
-                          fontSize: SizeConfig.getProportionateScreenWidth(12)),
+                          fontWeight: FontWeight.bold,
+                          fontSize: SizeConfig.getProportionateScreenWidth(14),
+                          color: Colors.white),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: EdgeInsets.only(top: 4.0),
+                      child: Text(
+                        'moreInfo'.locale,
+                        style: TextStyle(
+                            fontFamily: ApplicationConstants.FONT_FAMILY2,
+                            color: Colors.white,
+                            fontSize: SizeConfig.getProportionateScreenWidth(12)),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

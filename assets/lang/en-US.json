@@ -110,7 +110,16 @@
     "add": "Add",
     "cancel": "Cancel",
     "enterUsername": "Enter username",
-    "youAreAboutAddUser": "You are about to add this user"
+    "youAreAboutAddUser": "You are about to add this user",
+    "choosePackage": "Choose a package",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "package": "Package ",
+    "month": "/ Month",
+    "year": "/ Year",
+    "dailyCoin": "Daily Coin: + ",
+    "realTree": " Real Tree",
+    "continue": "Continue"
 
 
 

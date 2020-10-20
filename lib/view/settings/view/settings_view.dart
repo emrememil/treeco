@@ -322,51 +322,54 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  Center get proVersionTopContainer {
-    return Center(
-      child: Padding(
-        padding:
-            EdgeInsets.only(top: SizeConfig.getProportionateScreenHeight(16)),
-        child: Container(
-          height: SizeConfig.getProportionateScreenHeight(120),
-          width: SizeConfig.screenWidth -
-              SizeConfig.getProportionateScreenWidth(16),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: Color(ApplicationConstants.BACKGROUND_COLOR2),
-            gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: [Color(0xff91D183), Color(0xff5CA985)]),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Icon(
-                MdiIcons.crown,
-                color: Colors.yellow,
-                size: SizeConfig.getProportionateScreenWidth(42),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    Text(
-                      'proVersion'.locale,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontFamily: ApplicationConstants.FONT_FAMILY2,
-                          fontWeight: FontWeight.bold,
-                          fontSize: SizeConfig.getProportionateScreenWidth(16),
-                          color: Colors.white),
-                    ),
-                  ],
+  get proVersionTopContainer {
+    return InkWell(
+      onTap: () => NavigationService.instance.navigateToPage(path: NavigationConstants.STORE),
+      child: Center(
+        child: Padding(
+          padding:
+              EdgeInsets.only(top: SizeConfig.getProportionateScreenHeight(16)),
+          child: Container(
+            height: SizeConfig.getProportionateScreenHeight(120),
+            width: SizeConfig.screenWidth -
+                SizeConfig.getProportionateScreenWidth(16),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: Color(ApplicationConstants.BACKGROUND_COLOR2),
+              gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: [Color(0xff91D183), Color(0xff5CA985)]),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  MdiIcons.crown,
+                  color: Colors.yellow,
+                  size: SizeConfig.getProportionateScreenWidth(42),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: EdgeInsets.only(left: 8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      Text(
+                        'proVersion'.locale,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontFamily: ApplicationConstants.FONT_FAMILY2,
+                            fontWeight: FontWeight.bold,
+                            fontSize: SizeConfig.getProportionateScreenWidth(16),
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
